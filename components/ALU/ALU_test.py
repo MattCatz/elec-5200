@@ -56,7 +56,9 @@ def test_and_fixed( dump_vcd ):
 
 
 def test_and_random( dump_vcd ):
-	assert 0
+	f = lambda x,y: x and y
+	test_vector_table = alu_gen_random( 0x3, f )
+	run_test_vector_sim( ALU(16), test_vector_table, dump_vcd )
 
 
 def test_or_fixed( dump_vcd ):
@@ -64,7 +66,9 @@ def test_or_fixed( dump_vcd ):
 
 
 def test_or_random( dump_vcd ):
-	assert 0
+	f = lambda x,y: x or y
+	test_vector_table = alu_gen_random( 0x4, f )
+	run_test_vector_sim( ALU(16), test_vector_table, dump_vcd )
 
 
 def test_less_than_fixed( dump_vcd ):
@@ -72,7 +76,9 @@ def test_less_than_fixed( dump_vcd ):
 
 
 def test_less_than_random( dump_vcd ):
-	assert 0
+	f = lambda x,y: x or y
+	test_vector_table = alu_gen_random( 0x5, f )
+	run_test_vector_sim( ALU(16), test_vector_table, dump_vcd )
 
 
 def test_equal_fixed( dump_vcd ):
@@ -80,8 +86,14 @@ def test_equal_fixed( dump_vcd ):
 
 
 def test_equal_random( dump_vcd ):
-	assert 0
+	f = lambda x,y: x == y
+	test_vector_table = alu_gen_random( 0x6, f )
+	run_test_vector_sim( ALU(16), test_vector_table, dump_vcd )
 
 
 def test_invalid_operation( dump_vcd ):
-	assert 0
+	f = lambda x,y: 0
+	for i in xrange(40):
+
+		test_vector_table = alu_gen_random( 0x5, f )
+		run_test_vector_sim( ALU(16), test_vector_table, dump_vcd )
