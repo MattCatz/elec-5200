@@ -1,0 +1,68 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+
+\usepackage{color}
+ 
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+ 
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+ 
+\lstset{style=mystyle}
+
+\title{5200 CPU 3}
+\author{Matthew Cather}
+\date{March 2019}
+
+\begin{document}
+
+\maketitle
+
+For this section of the project I chose to model the CPU using the python library \texttt{py-MTL}. I chose this it allows me to focus and implement more complex ideas while still remaining productive. Ultimately I would like to transform this into a pipe-lined processor once the single cycle design is verified. 
+
+\tableofcontents
+\clearpage
+
+\section{Registers}
+\subsection{Immediate Register}
+
+\subsection{Program Counter Register}
+
+\section{Multiplexers}
+Utilizing the paramiterzation features of py-MTL I am able to use one generic Multiplexer model for all multiplexers required by the design:
+\begin{itemize}
+    \item Data Mux
+    \item Operand Mux
+    \item PC Mux
+\end{itemize}
+\lstinputlisting[language=python]{components/MUX/MUX.py}
+
+\section{Register File}
+\lstinputlisting[language=python]{components/RegFile/RegFile.py}
+
+\section{Arithmetic and Logic unit}
+\lstinputlisting[language=python]{components/ALU/ALU.py}
+
+\section{PC Adder}
+
+\end{document}
