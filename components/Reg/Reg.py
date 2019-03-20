@@ -5,15 +5,21 @@ class Reg( Model ):
 	def __init__(s, dtype=Bits(16)):
 
 		s.in_ = InPort( dtype )
+		s.w_en = InPort( dtype )
 		s.out = Outport( dtype )
 
 		@s.posedge_tick
 		def logic():
-			s.out.next = in_
+			if s.reset:
+				s.out.next = 0
+			elif s.w_en:
+				s.out.next = in_
+			else:
+				s.out.next = s.out
 
 
 	def line_trace( s ):
-		return ""
+		return "In: {} W_EN: {} Out: {}".format(s.in_,s.w_en,s.out)
 
 
 class Shifter( Model ):
@@ -28,4 +34,4 @@ class Shifter( Model ):
 
 
 	def line_trace( s ):
-		return ""
+		return "In: {} Out: {}".format(s.in_,s.out)

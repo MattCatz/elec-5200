@@ -5,9 +5,9 @@ class Mux( Model ):
 	def __init__(s, dtype = Bits(16), nports=4):
 		sel_len = clog2( nregs )
 
-		s.sel = InPort( Bits(sel_len) )
 		s.val = OutPort( dtype )
-		s.ports = [ Wire(dtype) for _ in range(nports) ]
+		s.sel = InPort( Bits(sel_len) )
+		s.ports = [ InPort(dtype) for _ in range(nports) ]
 
 		@s.combinational
 		def logic():

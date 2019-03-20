@@ -22,7 +22,7 @@ class RegIncr( Model ):
 
     s.reg_out = Wire( Bits(width) )
 
-    @s.tick
+    @s.posedge_tick
     def block1():
       if s.reset:
         s.reg_out.next = 0
