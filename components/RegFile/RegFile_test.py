@@ -48,7 +48,6 @@ def test_rw( dump_vcd ):
 	], dump_vcd)
 
 def test_rw_sequental( dump_vcd ):
-	data = gen_data(16,16)
+	data = gen_data(16,8)
 	test_vector_table = gen_vector_table(data)
-	print test_vector_table
-	run_test_vector_sim( RegFile(dtype=Bits(16),nregs=16), test_vector_table, dump_vcd )		
+	run_test_vector_sim( RegFile(dtype=Bits(16),nregs=8), test_vector_table, dump_vcd )		

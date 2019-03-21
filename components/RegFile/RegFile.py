@@ -28,5 +28,5 @@ class RegFile( Model ):
  
  
    def line_trace( s ):
-      return [x.uint() for x in s.regs]
+      return [x.hex() for x in s.regs]
 

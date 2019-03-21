@@ -19,6 +19,7 @@ def alu_gen_random( o, f ):
 	
 
 def test_add_fixed( dump_vcd ):
+	print "Testing Add with fixed imput"
 	run_test_vector_sim( ALU( 16 ), [ 
 	('op1     op2 operation result*'),
 	[ 0x1,    0x1,      0x1,     0x0],
@@ -31,12 +32,14 @@ def test_add_fixed( dump_vcd ):
 
 
 def test_add_random(dump_vcd):
+	print "Testing Add with random imput"
 	f = lambda x,y: x+y
 	test_vector_table = alu_gen_random(0x1,f)
 	run_test_vector_sim( ALU(16), test_vector_table, dump_vcd )
 
 
 def test_sub_fixed( dump_vcd ):
+	print "Testing Subtract with fixed imput"
 	run_test_vector_sim( ALU( 16 ), [ 
 	('op1     op2 operation result*'),
 	[ 0x1,    0x1,      0x2,     0x0],
@@ -48,6 +51,7 @@ def test_sub_fixed( dump_vcd ):
 
 
 def test_sub_random( dump_vcd ):
+	print "Testing Subtract with random imput"
 	f = lambda x,y: x-y
 	test_vector_table = alu_gen_random( 0x2, f )
 	run_test_vector_sim( ALU(16), test_vector_table, dump_vcd )
@@ -59,7 +63,8 @@ def test_and_fixed( dump_vcd ):
 
 
 def test_and_random( dump_vcd ):
-	f = lambda x,y: x and y
+	print "Testing Logical And with random imput"
+	f = lambda x,y: x & y
 	test_vector_table = alu_gen_random( 0x3, f )
 	run_test_vector_sim( ALU(16), test_vector_table, dump_vcd )
 
@@ -70,7 +75,8 @@ def test_or_fixed( dump_vcd ):
 
 
 def test_or_random( dump_vcd ):
-	f = lambda x,y: x or y
+	print "Testing Logical Or with random imput"
+	f = lambda x,y: x | y
 	test_vector_table = alu_gen_random( 0x4, f )
 	run_test_vector_sim( ALU(16), test_vector_table, dump_vcd )
 
@@ -81,6 +87,7 @@ def test_less_than_fixed( dump_vcd ):
 
 
 def test_less_than_random( dump_vcd ):
+	print "Testing Less Than with random imput"
 	f = lambda x,y: x<y
 	test_vector_table = alu_gen_random( 0x5, f )
 	run_test_vector_sim( ALU(16), test_vector_table, dump_vcd )
@@ -92,12 +99,14 @@ def test_equal_fixed( dump_vcd ):
 
 
 def test_equal_random( dump_vcd ):
+	print "Testing Equivalence with random imput"
 	f = lambda x,y: x == y
 	test_vector_table = alu_gen_random( 0x6, f )
 	run_test_vector_sim( ALU(16), test_vector_table, dump_vcd )
 
 
 def test_invalid_operation( dump_vcd ):
+	print "Testing invalid input"
 	f = lambda x,y: 0
 	test_vector_table = alu_gen_random( 0x7, f )
 	run_test_vector_sim( ALU(16), test_vector_table, dump_vcd )
