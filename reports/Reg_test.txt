@@ -1,0 +1,21 @@
+components/Reg/Reg_test.py::test_register_fixed
+  2: In: 00 W_EN: 01 Out: 00
+  3: In: f0 W_EN: 01 Out: 00
+  4: In: 0f W_EN: 00 Out: f0
+  5: In: 00 W_EN: 00 Out: f0
+  6: In: 00 W_EN: 01 Out: f0
+  7: In: 00 W_EN: 00 Out: 00
+PASSED
+components/Reg/Reg_test.py::test_register_priority
+  2: In: 00 W_EN: 01 Out: 00
+  3: In: ff W_EN: 01 Out: 00
+  4: In: ff W_EN: 00 Out: 00
+  5: In: 00 W_EN: 00 Out: 00
+PASSED
+components/Reg/Reg_test.py::test_shifter
+  2: In: 0000 Out: 0000
+  3: In: 00ff Out: 0ff0
+  4: In: f0f0 Out: 0f00
+  5: In: 0ff0 Out: ff00
+  6: In: ffff Out: fff0
+PASSED
