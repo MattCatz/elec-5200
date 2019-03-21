@@ -1,0 +1,7 @@
+components/Mux/Mux_test.py::test_mux_fixed
+  2: Sel: 1 Val: 00
+  3: Sel: 1 Val: 00
+  4: Sel: 0 Val: ff
+  5: Sel: 0 Val: 33
+  6: Sel: 1 Val: aa
+PASSED
