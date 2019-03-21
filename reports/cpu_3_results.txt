@@ -1,0 +1,480 @@
+components/ALU/ALU_test.py::test_add_fixed Testing Add with fixed imput
+
+  2: OP1:0001 (0000) OP2:0001 (0000) Operation:1 (0) Result:0000
+  3: OP1:0003 (0001) OP2:0004 (0001) Operation:1 (1) Result:0002
+  4: OP1:ff00 (0003) OP2:00ff (0004) Operation:1 (1) Result:0007
+  5: OP1:0002 (ff00) OP2:fffe (00ff) Operation:1 (1) Result:ffff
+  6: OP1:0002 (0002) OP2:ffff (fffe) Operation:1 (1) Result:0000
+  7: OP1:0000 (0002) OP2:0000 (ffff) Operation:1 (1) Result:0001
+PASSED
+components/ALU/ALU_test.py::test_add_random Testing Add with random imput
+
+  2: OP1:f038 (0000) OP2:7656 (0000) Operation:1 (0) Result:0000
+  3: OP1:27a4 (f038) OP2:2bcb (7656) Operation:1 (1) Result:668e
+  4: OP1:c478 (27a4) OP2:b049 (2bcb) Operation:1 (1) Result:536f
+  5: OP1:b412 (c478) OP2:2615 (b049) Operation:1 (1) Result:74c1
+  6: OP1:b2ef (b412) OP2:80a6 (2615) Operation:1 (1) Result:da27
+  7: OP1:a923 (b2ef) OP2:6d26 (80a6) Operation:1 (1) Result:3395
+  8: OP1:332c (a923) OP2:93af (6d26) Operation:1 (1) Result:1649
+  9: OP1:afe6 (332c) OP2:2588 (93af) Operation:1 (1) Result:c6db
+ 10: OP1:7689 (afe6) OP2:4633 (2588) Operation:1 (1) Result:d56e
+ 11: OP1:59a1 (7689) OP2:c096 (4633) Operation:1 (1) Result:bcbc
+ 12: OP1:9186 (59a1) OP2:f8b0 (c096) Operation:1 (1) Result:1a37
+ 13: OP1:7d27 (9186) OP2:b29c (f8b0) Operation:1 (1) Result:8a36
+ 14: OP1:a6ee (7d27) OP2:1ae6 (b29c) Operation:1 (1) Result:2fc3
+ 15: OP1:9e7c (a6ee) OP2:466c (1ae6) Operation:1 (1) Result:c1d4
+ 16: OP1:29e0 (9e7c) OP2:462a (466c) Operation:1 (1) Result:e4e8
+ 17: OP1:cb07 (29e0) OP2:5312 (462a) Operation:1 (1) Result:700a
+ 18: OP1:d420 (cb07) OP2:88a8 (5312) Operation:1 (1) Result:1e19
+ 19: OP1:e54c (d420) OP2:103b (88a8) Operation:1 (1) Result:5cc8
+ 20: OP1:3842 (e54c) OP2:c7e2 (103b) Operation:1 (1) Result:f587
+ 21: OP1:c83c (3842) OP2:f1bb (c7e2) Operation:1 (1) Result:0024
+ 22: OP1:d6fa (c83c) OP2:2198 (f1bb) Operation:1 (1) Result:b9f7
+ 23: OP1:3a25 (d6fa) OP2:0586 (2198) Operation:1 (1) Result:f892
+ 24: OP1:a4e7 (3a25) OP2:cf5e (0586) Operation:1 (1) Result:3fab
+ 25: OP1:ccc7 (a4e7) OP2:8ead (cf5e) Operation:1 (1) Result:7445
+ 26: OP1:24a9 (ccc7) OP2:f828 (8ead) Operation:1 (1) Result:5b74
+ 27: OP1:b00c (24a9) OP2:7e83 (f828) Operation:1 (1) Result:1cd1
+ 28: OP1:4ab1 (b00c) OP2:aaac (7e83) Operation:1 (1) Result:2e8f
+ 29: OP1:696c (4ab1) OP2:52a5 (aaac) Operation:1 (1) Result:f55d
+ 30: OP1:6609 (696c) OP2:f8e1 (52a5) Operation:1 (1) Result:bc11
+ 31: OP1:a287 (6609) OP2:2f92 (f8e1) Operation:1 (1) Result:5eea
+ 32: OP1:773b (a287) OP2:da1e (2f92) Operation:1 (1) Result:d219
+ 33: OP1:f58f (773b) OP2:8dd4 (da1e) Operation:1 (1) Result:5159
+ 34: OP1:9ff9 (f58f) OP2:bca6 (8dd4) Operation:1 (1) Result:8363
+ 35: OP1:d60c (9ff9) OP2:500b (bca6) Operation:1 (1) Result:5c9f
+ 36: OP1:2429 (d60c) OP2:6891 (500b) Operation:1 (1) Result:2617
+ 37: OP1:409a (2429) OP2:8dfa (6891) Operation:1 (1) Result:8cba
+ 38: OP1:d34d (409a) OP2:3d3c (8dfa) Operation:1 (1) Result:ce94
+ 39: OP1:fd96 (d34d) OP2:ab88 (3d3c) Operation:1 (1) Result:1089
+ 40: OP1:fa85 (fd96) OP2:44e9 (ab88) Operation:1 (1) Result:a91e
+ 41: OP1:f43f (fa85) OP2:4820 (44e9) Operation:1 (1) Result:3f6e
+PASSED
+components/ALU/ALU_test.py::test_sub_fixed Testing Subtract with fixed imput
+
+  2: OP1:0001 (0000) OP2:0001 (0000) Operation:2 (0) Result:0000
+  3: OP1:0003 (0001) OP2:0004 (0001) Operation:2 (2) Result:0000
+  4: OP1:ff00 (0003) OP2:00ff (0004) Operation:2 (2) Result:ffff
+  5: OP1:0002 (ff00) OP2:fffe (00ff) Operation:2 (2) Result:fe01
+  6: OP1:0000 (0002) OP2:0000 (fffe) Operation:2 (2) Result:0004
+PASSED
+components/ALU/ALU_test.py::test_sub_random Testing Subtract with random imput
+
+  2: OP1:f0fd (0000) OP2:5285 (0000) Operation:2 (0) Result:0000
+  3: OP1:505a (f0fd) OP2:3c39 (5285) Operation:2 (2) Result:9e78
+  4: OP1:ee5b (505a) OP2:f11f (3c39) Operation:2 (2) Result:1421
+  5: OP1:0519 (ee5b) OP2:fca4 (f11f) Operation:2 (2) Result:fd3c
+  6: OP1:a5de (0519) OP2:e527 (fca4) Operation:2 (2) Result:0875
+  7: OP1:0bd6 (a5de) OP2:0141 (e527) Operation:2 (2) Result:c0b7
+  8: OP1:dcaf (0bd6) OP2:0bfd (0141) Operation:2 (2) Result:0a95
+  9: OP1:c66f (dcaf) OP2:c50a (0bfd) Operation:2 (2) Result:d0b2
+ 10: OP1:6c19 (c66f) OP2:df54 (c50a) Operation:2 (2) Result:0165
+ 11: OP1:a52d (6c19) OP2:ee3d (df54) Operation:2 (2) Result:8cc5
+ 12: OP1:ebe2 (a52d) OP2:6956 (ee3d) Operation:2 (2) Result:b6f0
+ 13: OP1:14d3 (ebe2) OP2:b9bd (6956) Operation:2 (2) Result:828c
+ 14: OP1:de37 (14d3) OP2:e275 (b9bd) Operation:2 (2) Result:5b16
+ 15: OP1:85c9 (de37) OP2:3f2e (e275) Operation:2 (2) Result:fbc2
+ 16: OP1:d8dd (85c9) OP2:b950 (3f2e) Operation:2 (2) Result:469b
+ 17: OP1:ddcd (d8dd) OP2:205d (b950) Operation:2 (2) Result:1f8d
+ 18: OP1:bcb2 (ddcd) OP2:bc4c (205d) Operation:2 (2) Result:bd70
+ 19: OP1:2c66 (bcb2) OP2:69f7 (bc4c) Operation:2 (2) Result:0066
+ 20: OP1:a3a4 (2c66) OP2:0973 (69f7) Operation:2 (2) Result:c26f
+ 21: OP1:6e4d (a3a4) OP2:d512 (0973) Operation:2 (2) Result:9a31
+ 22: OP1:e70b (6e4d) OP2:3546 (d512) Operation:2 (2) Result:993b
+ 23: OP1:0e8a (e70b) OP2:c051 (3546) Operation:2 (2) Result:b1c5
+ 24: OP1:e8e2 (0e8a) OP2:0a2e (c051) Operation:2 (2) Result:4e39
+ 25: OP1:625e (e8e2) OP2:5b3a (0a2e) Operation:2 (2) Result:deb4
+ 26: OP1:5aa3 (625e) OP2:bf20 (5b3a) Operation:2 (2) Result:0724
+ 27: OP1:fb67 (5aa3) OP2:d2f2 (bf20) Operation:2 (2) Result:9b83
+ 28: OP1:b523 (fb67) OP2:8d15 (d2f2) Operation:2 (2) Result:2875
+ 29: OP1:e8db (b523) OP2:47d0 (8d15) Operation:2 (2) Result:280e
+ 30: OP1:58cc (e8db) OP2:8058 (47d0) Operation:2 (2) Result:a10b
+ 31: OP1:94a4 (58cc) OP2:554c (8058) Operation:2 (2) Result:d874
+ 32: OP1:48f8 (94a4) OP2:e6a1 (554c) Operation:2 (2) Result:3f58
+ 33: OP1:0cb0 (48f8) OP2:9612 (e6a1) Operation:2 (2) Result:6257
+ 34: OP1:4a1e (0cb0) OP2:400c (9612) Operation:2 (2) Result:769e
+ 35: OP1:72df (4a1e) OP2:15a7 (400c) Operation:2 (2) Result:0a12
+ 36: OP1:359e (72df) OP2:e41e (15a7) Operation:2 (2) Result:5d38
+ 37: OP1:1c63 (359e) OP2:68fc (e41e) Operation:2 (2) Result:5180
+ 38: OP1:95f8 (1c63) OP2:3fa8 (68fc) Operation:2 (2) Result:b367
+ 39: OP1:0962 (95f8) OP2:dcf2 (3fa8) Operation:2 (2) Result:5650
+ 40: OP1:665d (0962) OP2:653e (dcf2) Operation:2 (2) Result:2c70
+ 41: OP1:adce (665d) OP2:18e5 (653e) Operation:2 (2) Result:011f
+PASSED
+components/ALU/ALU_test.py::test_and_fixed Testing And with fixed imput
+
+  2: OP1:0001 (0000) OP2:0001 (0000) Operation:3 (0) Result:0000
+  3: OP1:0003 (0001) OP2:0004 (0001) Operation:3 (3) Result:0001
+  4: OP1:ff00 (0003) OP2:00ff (0004) Operation:3 (3) Result:0000
+  5: OP1:0002 (ff00) OP2:fffe (00ff) Operation:3 (3) Result:0000
+  6: OP1:000a (0002) OP2:000a (fffe) Operation:3 (3) Result:0002
+  7: OP1:0000 (000a) OP2:0000 (000a) Operation:0 (3) Result:000a
+PASSED
+components/ALU/ALU_test.py::test_and_random Testing Logical And with random imput
+
+  2: OP1:e44e (0000) OP2:c89f (0000) Operation:3 (0) Result:0000
+  3: OP1:ba5d (e44e) OP2:ab1d (c89f) Operation:3 (3) Result:c00e
+  4: OP1:eda3 (ba5d) OP2:2539 (ab1d) Operation:3 (3) Result:aa1d
+  5: OP1:f36d (eda3) OP2:af99 (2539) Operation:3 (3) Result:2521
+  6: OP1:6a40 (f36d) OP2:bc60 (af99) Operation:3 (3) Result:a309
+  7: OP1:3581 (6a40) OP2:740c (bc60) Operation:3 (3) Result:2840
+  8: OP1:27f9 (3581) OP2:ec81 (740c) Operation:3 (3) Result:3400
+  9: OP1:20ec (27f9) OP2:27aa (ec81) Operation:3 (3) Result:2481
+ 10: OP1:e30b (20ec) OP2:2b26 (27aa) Operation:3 (3) Result:20a8
+ 11: OP1:c802 (e30b) OP2:e3ac (2b26) Operation:3 (3) Result:2302
+ 12: OP1:a77f (c802) OP2:a30b (e3ac) Operation:3 (3) Result:c000
+ 13: OP1:c34c (a77f) OP2:e263 (a30b) Operation:3 (3) Result:a30b
+ 14: OP1:fe47 (c34c) OP2:a325 (e263) Operation:3 (3) Result:c240
+ 15: OP1:fe8a (fe47) OP2:5f92 (a325) Operation:3 (3) Result:a205
+ 16: OP1:bb4a (fe8a) OP2:d33b (5f92) Operation:3 (3) Result:5e82
+ 17: OP1:c657 (bb4a) OP2:82fd (d33b) Operation:3 (3) Result:930a
+ 18: OP1:b096 (c657) OP2:5413 (82fd) Operation:3 (3) Result:8255
+ 19: OP1:78b4 (b096) OP2:3556 (5413) Operation:3 (3) Result:1012
+ 20: OP1:3771 (78b4) OP2:3121 (3556) Operation:3 (3) Result:3014
+ 21: OP1:8b80 (3771) OP2:2ae0 (3121) Operation:3 (3) Result:3121
+ 22: OP1:54c0 (8b80) OP2:3ffc (2ae0) Operation:3 (3) Result:0a80
+ 23: OP1:c238 (54c0) OP2:1cfc (3ffc) Operation:3 (3) Result:14c0
+ 24: OP1:b318 (c238) OP2:dbd8 (1cfc) Operation:3 (3) Result:0038
+ 25: OP1:d7b8 (b318) OP2:291c (dbd8) Operation:3 (3) Result:9318
+ 26: OP1:cf32 (d7b8) OP2:4b18 (291c) Operation:3 (3) Result:0118
+ 27: OP1:bdce (cf32) OP2:3711 (4b18) Operation:3 (3) Result:4b10
+ 28: OP1:a208 (bdce) OP2:17eb (3711) Operation:3 (3) Result:3500
+ 29: OP1:a4a2 (a208) OP2:e14b (17eb) Operation:3 (3) Result:0208
+ 30: OP1:b1d2 (a4a2) OP2:6739 (e14b) Operation:3 (3) Result:a002
+ 31: OP1:a1b3 (b1d2) OP2:2b76 (6739) Operation:3 (3) Result:2110
+ 32: OP1:17d9 (a1b3) OP2:a26d (2b76) Operation:3 (3) Result:2132
+ 33: OP1:5431 (17d9) OP2:d3e7 (a26d) Operation:3 (3) Result:0249
+ 34: OP1:3d5a (5431) OP2:7f5a (d3e7) Operation:3 (3) Result:5021
+ 35: OP1:da35 (3d5a) OP2:59cc (7f5a) Operation:3 (3) Result:3d5a
+ 36: OP1:df84 (da35) OP2:6252 (59cc) Operation:3 (3) Result:5804
+ 37: OP1:aed7 (df84) OP2:093f (6252) Operation:3 (3) Result:4200
+ 38: OP1:5876 (aed7) OP2:6954 (093f) Operation:3 (3) Result:0817
+ 39: OP1:93fe (5876) OP2:d39e (6954) Operation:3 (3) Result:4854
+ 40: OP1:cc18 (93fe) OP2:1bbf (d39e) Operation:3 (3) Result:939e
+ 41: OP1:a8c6 (cc18) OP2:1f32 (1bbf) Operation:3 (3) Result:0818
+PASSED
+components/ALU/ALU_test.py::test_or_fixed Testing Or with fixed imput
+
+  2: OP1:0001 (0000) OP2:0001 (0000) Operation:4 (0) Result:0000
+  3: OP1:0003 (0001) OP2:0004 (0001) Operation:4 (4) Result:0001
+  4: OP1:ff00 (0003) OP2:00ff (0004) Operation:4 (4) Result:0007
+  5: OP1:0002 (ff00) OP2:fffe (00ff) Operation:4 (4) Result:ffff
+  6: OP1:000a (0002) OP2:0005 (fffe) Operation:4 (4) Result:fffe
+  7: OP1:0000 (000a) OP2:0000 (0005) Operation:0 (4) Result:000f
+PASSED
+components/ALU/ALU_test.py::test_or_random Testing Logical Or with random imput
+
+  2: OP1:e70a (0000) OP2:f9e5 (0000) Operation:4 (0) Result:0000
+  3: OP1:b5bc (e70a) OP2:e507 (f9e5) Operation:4 (4) Result:ffef
+  4: OP1:08a1 (b5bc) OP2:930b (e507) Operation:4 (4) Result:f5bf
+  5: OP1:c2af (08a1) OP2:0f7b (930b) Operation:4 (4) Result:9bab
+  6: OP1:094c (c2af) OP2:a6bc (0f7b) Operation:4 (4) Result:cfff
+  7: OP1:e5c7 (094c) OP2:19d1 (a6bc) Operation:4 (4) Result:affc
+  8: OP1:271d (e5c7) OP2:c5da (19d1) Operation:4 (4) Result:fdd7
+  9: OP1:13bf (271d) OP2:50a7 (c5da) Operation:4 (4) Result:e7df
+ 10: OP1:b4ac (13bf) OP2:555d (50a7) Operation:4 (4) Result:53bf
+ 11: OP1:3894 (b4ac) OP2:020f (555d) Operation:4 (4) Result:f5fd
+ 12: OP1:4179 (3894) OP2:2465 (020f) Operation:4 (4) Result:3a9f
+ 13: OP1:7a43 (4179) OP2:6f95 (2465) Operation:4 (4) Result:657d
+ 14: OP1:0db5 (7a43) OP2:12a9 (6f95) Operation:4 (4) Result:7fd7
+ 15: OP1:1149 (0db5) OP2:ab23 (12a9) Operation:4 (4) Result:1fbd
+ 16: OP1:80fb (1149) OP2:a484 (ab23) Operation:4 (4) Result:bb6b
+ 17: OP1:79bd (80fb) OP2:b6a2 (a484) Operation:4 (4) Result:a4ff
+ 18: OP1:a520 (79bd) OP2:d30f (b6a2) Operation:4 (4) Result:ffbf
+ 19: OP1:3ee0 (a520) OP2:64f3 (d30f) Operation:4 (4) Result:f72f
+ 20: OP1:6f7c (3ee0) OP2:9b48 (64f3) Operation:4 (4) Result:7ef3
+ 21: OP1:22c4 (6f7c) OP2:0def (9b48) Operation:4 (4) Result:ff7c
+ 22: OP1:f39a (22c4) OP2:56ce (0def) Operation:4 (4) Result:2fef
+ 23: OP1:0272 (f39a) OP2:a8ab (56ce) Operation:4 (4) Result:f7de
+ 24: OP1:13a8 (0272) OP2:b995 (a8ab) Operation:4 (4) Result:aafb
+ 25: OP1:15ac (13a8) OP2:0ef9 (b995) Operation:4 (4) Result:bbbd
+ 26: OP1:4264 (15ac) OP2:2753 (0ef9) Operation:4 (4) Result:1ffd
+ 27: OP1:9476 (4264) OP2:c181 (2753) Operation:4 (4) Result:6777
+ 28: OP1:8fd1 (9476) OP2:690f (c181) Operation:4 (4) Result:d5f7
+ 29: OP1:81c8 (8fd1) OP2:022d (690f) Operation:4 (4) Result:efdf
+ 30: OP1:8928 (81c8) OP2:07ab (022d) Operation:4 (4) Result:83ed
+ 31: OP1:f33f (8928) OP2:77e6 (07ab) Operation:4 (4) Result:8fab
+ 32: OP1:000c (f33f) OP2:ec43 (77e6) Operation:4 (4) Result:f7ff
+ 33: OP1:ab7c (000c) OP2:dcc9 (ec43) Operation:4 (4) Result:ec4f
+ 34: OP1:8a8f (ab7c) OP2:c095 (dcc9) Operation:4 (4) Result:fffd
+ 35: OP1:fe72 (8a8f) OP2:7ea5 (c095) Operation:4 (4) Result:ca9f
+ 36: OP1:afe4 (fe72) OP2:192a (7ea5) Operation:4 (4) Result:fef7
+ 37: OP1:4589 (afe4) OP2:4d76 (192a) Operation:4 (4) Result:bfee
+ 38: OP1:bb2d (4589) OP2:b4c4 (4d76) Operation:4 (4) Result:4dff
+ 39: OP1:95ea (bb2d) OP2:2988 (b4c4) Operation:4 (4) Result:bfed
+ 40: OP1:f4b4 (95ea) OP2:e2b2 (2988) Operation:4 (4) Result:bdea
+ 41: OP1:afa3 (f4b4) OP2:d966 (e2b2) Operation:4 (4) Result:f6b6
+PASSED
+components/ALU/ALU_test.py::test_less_than_fixed Testing Less than with fixed imput
+
+  2: OP1:0001 (0000) OP2:0001 (0000) Operation:5 (0) Result:0000
+  3: OP1:0003 (0001) OP2:0004 (0001) Operation:5 (5) Result:0000
+  4: OP1:ff00 (0003) OP2:00ff (0004) Operation:5 (5) Result:0001
+  5: OP1:0002 (ff00) OP2:fffe (00ff) Operation:5 (5) Result:0000
+  6: OP1:000a (0002) OP2:0005 (fffe) Operation:5 (5) Result:0001
+  7: OP1:0000 (000a) OP2:0000 (0005) Operation:0 (5) Result:0000
+PASSED
+components/ALU/ALU_test.py::test_less_than_random Testing Less Than with random imput
+
+  2: OP1:a20c (0000) OP2:b68a (0000) Operation:5 (0) Result:0000
+  3: OP1:a7e7 (a20c) OP2:0722 (b68a) Operation:5 (5) Result:0001
+  4: OP1:66d8 (a7e7) OP2:4189 (0722) Operation:5 (5) Result:0000
+  5: OP1:a5e3 (66d8) OP2:b7b4 (4189) Operation:5 (5) Result:0000
+  6: OP1:1f71 (a5e3) OP2:fcf3 (b7b4) Operation:5 (5) Result:0001
+  7: OP1:e7f3 (1f71) OP2:06ab (fcf3) Operation:5 (5) Result:0001
+  8: OP1:4086 (e7f3) OP2:2c29 (06ab) Operation:5 (5) Result:0000
+  9: OP1:8d6f (4086) OP2:5030 (2c29) Operation:5 (5) Result:0000
+ 10: OP1:2f7e (8d6f) OP2:3be2 (5030) Operation:5 (5) Result:0000
+ 11: OP1:5f0d (2f7e) OP2:6dcb (3be2) Operation:5 (5) Result:0001
+ 12: OP1:5210 (5f0d) OP2:f49b (6dcb) Operation:5 (5) Result:0001
+ 13: OP1:ac38 (5210) OP2:2a44 (f49b) Operation:5 (5) Result:0001
+ 14: OP1:77e5 (ac38) OP2:f5c1 (2a44) Operation:5 (5) Result:0000
+ 15: OP1:6c0a (77e5) OP2:071b (f5c1) Operation:5 (5) Result:0001
+ 16: OP1:af3a (6c0a) OP2:fc74 (071b) Operation:5 (5) Result:0000
+ 17: OP1:6a9a (af3a) OP2:7579 (fc74) Operation:5 (5) Result:0001
+ 18: OP1:30b0 (6a9a) OP2:80b2 (7579) Operation:5 (5) Result:0001
+ 19: OP1:d77b (30b0) OP2:819f (80b2) Operation:5 (5) Result:0001
+ 20: OP1:f43b (d77b) OP2:a053 (819f) Operation:5 (5) Result:0000
+ 21: OP1:c2b9 (f43b) OP2:9a72 (a053) Operation:5 (5) Result:0000
+ 22: OP1:33a7 (c2b9) OP2:4739 (9a72) Operation:5 (5) Result:0000
+ 23: OP1:9ee8 (33a7) OP2:06ef (4739) Operation:5 (5) Result:0001
+ 24: OP1:cf80 (9ee8) OP2:b8f0 (06ef) Operation:5 (5) Result:0000
+ 25: OP1:430f (cf80) OP2:5288 (b8f0) Operation:5 (5) Result:0000
+ 26: OP1:7ec3 (430f) OP2:0be3 (5288) Operation:5 (5) Result:0001
+ 27: OP1:0af2 (7ec3) OP2:8d87 (0be3) Operation:5 (5) Result:0000
+ 28: OP1:db15 (0af2) OP2:914b (8d87) Operation:5 (5) Result:0001
+ 29: OP1:805c (db15) OP2:630c (914b) Operation:5 (5) Result:0000
+ 30: OP1:4cb6 (805c) OP2:84bb (630c) Operation:5 (5) Result:0000
+ 31: OP1:ce98 (4cb6) OP2:1705 (84bb) Operation:5 (5) Result:0001
+ 32: OP1:b941 (ce98) OP2:6c56 (1705) Operation:5 (5) Result:0000
+ 33: OP1:c797 (b941) OP2:b766 (6c56) Operation:5 (5) Result:0000
+ 34: OP1:a4d8 (c797) OP2:5501 (b766) Operation:5 (5) Result:0000
+ 35: OP1:6eb1 (a4d8) OP2:b287 (5501) Operation:5 (5) Result:0000
+ 36: OP1:cd9a (6eb1) OP2:bd9d (b287) Operation:5 (5) Result:0001
+ 37: OP1:701f (cd9a) OP2:3986 (bd9d) Operation:5 (5) Result:0000
+ 38: OP1:2ccc (701f) OP2:edbd (3986) Operation:5 (5) Result:0000
+ 39: OP1:4cda (2ccc) OP2:53cc (edbd) Operation:5 (5) Result:0001
+ 40: OP1:3978 (4cda) OP2:552b (53cc) Operation:5 (5) Result:0001
+ 41: OP1:7932 (3978) OP2:3930 (552b) Operation:5 (5) Result:0001
+PASSED
+components/ALU/ALU_test.py::test_equal_fixed Testing Equals with fixed imput
+
+  2: OP1:0001 (0000) OP2:0001 (0000) Operation:6 (0) Result:0000
+  3: OP1:0003 (0001) OP2:0004 (0001) Operation:6 (6) Result:0001
+  4: OP1:ff00 (0003) OP2:00ff (0004) Operation:6 (6) Result:0000
+  5: OP1:0002 (ff00) OP2:fffe (00ff) Operation:6 (6) Result:0000
+  6: OP1:000a (0002) OP2:000a (fffe) Operation:6 (6) Result:0000
+  7: OP1:0000 (000a) OP2:0000 (000a) Operation:0 (6) Result:0001
+PASSED
+components/ALU/ALU_test.py::test_equal_random Testing Equivalence with random imput
+
+  2: OP1:ef26 (0000) OP2:bfe8 (0000) Operation:6 (0) Result:0000
+  3: OP1:f770 (ef26) OP2:18f6 (bfe8) Operation:6 (6) Result:0000
+  4: OP1:c0f5 (f770) OP2:4b14 (18f6) Operation:6 (6) Result:0000
+  5: OP1:25a9 (c0f5) OP2:0d6b (4b14) Operation:6 (6) Result:0000
+  6: OP1:5177 (25a9) OP2:e12b (0d6b) Operation:6 (6) Result:0000
+  7: OP1:196d (5177) OP2:98f3 (e12b) Operation:6 (6) Result:0000
+  8: OP1:f9cd (196d) OP2:e3e6 (98f3) Operation:6 (6) Result:0000
+  9: OP1:75db (f9cd) OP2:ab4a (e3e6) Operation:6 (6) Result:0000
+ 10: OP1:0877 (75db) OP2:f8f3 (ab4a) Operation:6 (6) Result:0000
+ 11: OP1:0ec1 (0877) OP2:95e5 (f8f3) Operation:6 (6) Result:0000
+ 12: OP1:ee4b (0ec1) OP2:1197 (95e5) Operation:6 (6) Result:0000
+ 13: OP1:ff56 (ee4b) OP2:59d5 (1197) Operation:6 (6) Result:0000
+ 14: OP1:077c (ff56) OP2:2024 (59d5) Operation:6 (6) Result:0000
+ 15: OP1:8c22 (077c) OP2:515c (2024) Operation:6 (6) Result:0000
+ 16: OP1:ff67 (8c22) OP2:a00d (515c) Operation:6 (6) Result:0000
+ 17: OP1:543c (ff67) OP2:9b5f (a00d) Operation:6 (6) Result:0000
+ 18: OP1:0b82 (543c) OP2:cb76 (9b5f) Operation:6 (6) Result:0000
+ 19: OP1:aeda (0b82) OP2:be1c (cb76) Operation:6 (6) Result:0000
+ 20: OP1:f6de (aeda) OP2:cd01 (be1c) Operation:6 (6) Result:0000
+ 21: OP1:b13e (f6de) OP2:4d10 (cd01) Operation:6 (6) Result:0000
+ 22: OP1:8052 (b13e) OP2:16c6 (4d10) Operation:6 (6) Result:0000
+ 23: OP1:3203 (8052) OP2:6e61 (16c6) Operation:6 (6) Result:0000
+ 24: OP1:5a2d (3203) OP2:37b8 (6e61) Operation:6 (6) Result:0000
+ 25: OP1:ac2a (5a2d) OP2:48f5 (37b8) Operation:6 (6) Result:0000
+ 26: OP1:fdea (ac2a) OP2:cb5a (48f5) Operation:6 (6) Result:0000
+ 27: OP1:623b (fdea) OP2:ebc5 (cb5a) Operation:6 (6) Result:0000
+ 28: OP1:c7be (623b) OP2:4fcf (ebc5) Operation:6 (6) Result:0000
+ 29: OP1:3c47 (c7be) OP2:3fc1 (4fcf) Operation:6 (6) Result:0000
+ 30: OP1:43d5 (3c47) OP2:3053 (3fc1) Operation:6 (6) Result:0000
+ 31: OP1:7a01 (43d5) OP2:a0e6 (3053) Operation:6 (6) Result:0000
+ 32: OP1:ec66 (7a01) OP2:682c (a0e6) Operation:6 (6) Result:0000
+ 33: OP1:a0ae (ec66) OP2:b095 (682c) Operation:6 (6) Result:0000
+ 34: OP1:2082 (a0ae) OP2:a4c5 (b095) Operation:6 (6) Result:0000
+ 35: OP1:474a (2082) OP2:06cc (a4c5) Operation:6 (6) Result:0000
+ 36: OP1:f972 (474a) OP2:37b2 (06cc) Operation:6 (6) Result:0000
+ 37: OP1:7dbc (f972) OP2:f6a5 (37b2) Operation:6 (6) Result:0000
+ 38: OP1:7ff9 (7dbc) OP2:96d0 (f6a5) Operation:6 (6) Result:0000
+ 39: OP1:ac1d (7ff9) OP2:4cc0 (96d0) Operation:6 (6) Result:0000
+ 40: OP1:46e2 (ac1d) OP2:4b70 (4cc0) Operation:6 (6) Result:0000
+ 41: OP1:8bc5 (46e2) OP2:c76e (4b70) Operation:6 (6) Result:0000
+PASSED
+components/ALU/ALU_test.py::test_invalid_operation Testing invalid input
+
+  2: OP1:d51f (0000) OP2:9e46 (0000) Operation:7 (0) Result:0000
+  3: OP1:92ad (d51f) OP2:cff3 (9e46) Operation:7 (7) Result:0000
+  4: OP1:7f3f (92ad) OP2:bb21 (cff3) Operation:7 (7) Result:0000
+  5: OP1:ff94 (7f3f) OP2:2e0e (bb21) Operation:7 (7) Result:0000
+  6: OP1:ac49 (ff94) OP2:cc41 (2e0e) Operation:7 (7) Result:0000
+  7: OP1:7905 (ac49) OP2:3ad3 (cc41) Operation:7 (7) Result:0000
+  8: OP1:4f73 (7905) OP2:79fb (3ad3) Operation:7 (7) Result:0000
+  9: OP1:cb3d (4f73) OP2:a110 (79fb) Operation:7 (7) Result:0000
+ 10: OP1:4652 (cb3d) OP2:abcd (a110) Operation:7 (7) Result:0000
+ 11: OP1:dd14 (4652) OP2:e507 (abcd) Operation:7 (7) Result:0000
+ 12: OP1:072c (dd14) OP2:fce8 (e507) Operation:7 (7) Result:0000
+ 13: OP1:45d1 (072c) OP2:379d (fce8) Operation:7 (7) Result:0000
+ 14: OP1:6d74 (45d1) OP2:bd98 (379d) Operation:7 (7) Result:0000
+ 15: OP1:c60f (6d74) OP2:8d68 (bd98) Operation:7 (7) Result:0000
+ 16: OP1:b12b (c60f) OP2:9a59 (8d68) Operation:7 (7) Result:0000
+ 17: OP1:59b3 (b12b) OP2:cd01 (9a59) Operation:7 (7) Result:0000
+ 18: OP1:e17b (59b3) OP2:4192 (cd01) Operation:7 (7) Result:0000
+ 19: OP1:c501 (e17b) OP2:a3d0 (4192) Operation:7 (7) Result:0000
+ 20: OP1:b45a (c501) OP2:3f0f (a3d0) Operation:7 (7) Result:0000
+ 21: OP1:8f2f (b45a) OP2:cb8f (3f0f) Operation:7 (7) Result:0000
+ 22: OP1:fd2f (8f2f) OP2:28fd (cb8f) Operation:7 (7) Result:0000
+ 23: OP1:3a90 (fd2f) OP2:d0db (28fd) Operation:7 (7) Result:0000
+ 24: OP1:2d56 (3a90) OP2:5741 (d0db) Operation:7 (7) Result:0000
+ 25: OP1:1c33 (2d56) OP2:04fe (5741) Operation:7 (7) Result:0000
+ 26: OP1:27c9 (1c33) OP2:6b09 (04fe) Operation:7 (7) Result:0000
+ 27: OP1:e9c6 (27c9) OP2:d8b6 (6b09) Operation:7 (7) Result:0000
+ 28: OP1:3cb1 (e9c6) OP2:6307 (d8b6) Operation:7 (7) Result:0000
+ 29: OP1:45e6 (3cb1) OP2:43c9 (6307) Operation:7 (7) Result:0000
+ 30: OP1:0f55 (45e6) OP2:ddbf (43c9) Operation:7 (7) Result:0000
+ 31: OP1:5fea (0f55) OP2:d4d1 (ddbf) Operation:7 (7) Result:0000
+ 32: OP1:39cc (5fea) OP2:5d9d (d4d1) Operation:7 (7) Result:0000
+ 33: OP1:fc10 (39cc) OP2:1043 (5d9d) Operation:7 (7) Result:0000
+ 34: OP1:8e6d (fc10) OP2:63a7 (1043) Operation:7 (7) Result:0000
+ 35: OP1:8906 (8e6d) OP2:4064 (63a7) Operation:7 (7) Result:0000
+ 36: OP1:1d17 (8906) OP2:29de (4064) Operation:7 (7) Result:0000
+ 37: OP1:ec1d (1d17) OP2:faf7 (29de) Operation:7 (7) Result:0000
+ 38: OP1:b51a (ec1d) OP2:fe63 (faf7) Operation:7 (7) Result:0000
+ 39: OP1:9343 (b51a) OP2:0291 (fe63) Operation:7 (7) Result:0000
+ 40: OP1:49da (9343) OP2:2c6b (0291) Operation:7 (7) Result:0000
+ 41: OP1:4cdb (49da) OP2:8d3b (2c6b) Operation:7 (7) Result:0000
+PASSED
+components/Mux/Mux_test.py::test_mux_fixed
+  2: Sel: 1 Val: 00
+  3: Sel: 1 Val: 00
+  4: Sel: 0 Val: ff
+  5: Sel: 0 Val: 33
+  6: Sel: 1 Val: aa
+PASSED
+components/Reg/Reg_test.py::test_register_fixed
+  2: In: 00 W_EN: 01 Out: 00
+  3: In: f0 W_EN: 01 Out: 00
+  4: In: 0f W_EN: 00 Out: f0
+  5: In: 00 W_EN: 00 Out: f0
+  6: In: 00 W_EN: 01 Out: f0
+  7: In: 00 W_EN: 00 Out: 00
+PASSED
+components/Reg/Reg_test.py::test_register_priority
+  2: In: 00 W_EN: 01 Out: 00
+  3: In: ff W_EN: 01 Out: 00
+  4: In: ff W_EN: 00 Out: 00
+  5: In: 00 W_EN: 00 Out: 00
+PASSED
+components/Reg/Reg_test.py::test_shifter
+  2: In: 0000 Out: 0000
+  3: In: 00ff Out: 0ff0
+  4: In: f0f0 Out: 0f00
+  5: In: 0ff0 Out: ff00
+  6: In: ffff Out: fff0
+PASSED
+components/RegFile/RegFile_test.py::test_rw
+  2: ['0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000']
+  3: ['0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000']
+  4: ['0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000']
+  5: ['0x0000', '0x000f', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000']
+  6: ['0x0000', '0x000f', '0x000e', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000']
+  7: ['0x0000', '0x000f', '0x000e', '0x000d', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000']
+  8: ['0x0000', '0x000f', '0x000e', '0x000d', '0x000c', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000']
+  9: ['0x0000', '0x000f', '0x000e', '0x000d', '0x000c', '0x000b', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000']
+ 10: ['0x0000', '0x000f', '0x000e', '0x000d', '0x000c', '0x000b', '0x000a', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000']
+ 11: ['0x0000', '0x000f', '0x000e', '0x000d', '0x000c', '0x000b', '0x000a', '0x0009', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000']
+ 12: ['0x0000', '0x000f', '0x000e', '0x000d', '0x000c', '0x000b', '0x000a', '0x0009', '0x0008', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000']
+ 13: ['0x0000', '0x000f', '0x000e', '0x000d', '0x000c', '0x000b', '0x000a', '0x0009', '0x0008', '0x0007', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000']
+ 14: ['0x0000', '0x000f', '0x000e', '0x000d', '0x000c', '0x000b', '0x000a', '0x0009', '0x0008', '0x0007', '0x0006', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000']
+ 15: ['0x0000', '0x000f', '0x000e', '0x000d', '0x000c', '0x000b', '0x000a', '0x0009', '0x0008', '0x0007', '0x0006', '0x0005', '0x0000', '0x0000', '0x0000', '0x0000']
+ 16: ['0x0000', '0x000f', '0x000e', '0x000d', '0x000c', '0x000b', '0x000a', '0x0009', '0x0008', '0x0007', '0x0006', '0x0005', '0x0004', '0x0000', '0x0000', '0x0000']
+ 17: ['0x0000', '0x000f', '0x000e', '0x000d', '0x000c', '0x000b', '0x000a', '0x0009', '0x0008', '0x0007', '0x0006', '0x0005', '0x0004', '0x0003', '0x0000', '0x0000']
+ 18: ['0x0000', '0x000f', '0x000e', '0x000d', '0x000c', '0x000b', '0x000a', '0x0009', '0x0008', '0x0007', '0x0006', '0x0005', '0x0004', '0x0003', '0x0002', '0x0000']
+ 19: ['0x0000', '0x000f', '0x000e', '0x000d', '0x000c', '0x000b', '0x000a', '0x0009', '0x0008', '0x0007', '0x0006', '0x0005', '0x0004', '0x0003', '0x0002', '0x0001']
+PASSED
+components/RegFile/RegFile_test.py::test_rw_sequental
+  2: ['0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000']
+  3: ['0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000']
+  4: ['0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000']
+  5: ['0x0000', '0xa2a8', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000']
+  6: ['0x0000', '0xa2a8', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000']
+  7: ['0x0000', '0xa2a8', '0x51c1', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000']
+  8: ['0x0000', '0xa2a8', '0x51c1', '0x0000', '0x0000', '0x0000', '0x0000', '0x0000']
+  9: ['0x0000', '0xa2a8', '0x51c1', '0xf014', '0x0000', '0x0000', '0x0000', '0x0000']
+ 10: ['0x0000', '0xa2a8', '0x51c1', '0xf014', '0x0000', '0x0000', '0x0000', '0x0000']
+ 11: ['0x0000', '0xa2a8', '0x51c1', '0xf014', '0x8754', '0x0000', '0x0000', '0x0000']
+ 12: ['0x0000', '0xa2a8', '0x51c1', '0xf014', '0x8754', '0x0000', '0x0000', '0x0000']
+ 13: ['0x0000', '0xa2a8', '0x51c1', '0xf014', '0x8754', '0x4c91', '0x0000', '0x0000']
+ 14: ['0x0000', '0xa2a8', '0x51c1', '0xf014', '0x8754', '0x4c91', '0x0000', '0x0000']
+ 15: ['0x0000', '0xa2a8', '0x51c1', '0xf014', '0x8754', '0x4c91', '0xf7a1', '0x0000']
+ 16: ['0x0000', '0xa2a8', '0x51c1', '0xf014', '0x8754', '0x4c91', '0xf7a1', '0x0000']
+ 17: ['0x0000', '0xa2a8', '0x51c1', '0xf014', '0x8754', '0x4c91', '0xf7a1', '0xedb8']
+PASSED
+components/RegIncr/RegIncr_test.py::test_small
+  2: in:00 (00) out:01
+  3: in:03 (00) out:01
+  4: in:06 (03) out:04
+  5: in:00 (06) out:07
+PASSED
+components/RegIncr/RegIncr_test.py::test_large
+  2: in:a0 (00) out:01
+  3: in:b3 (a0) out:a1
+  4: in:c6 (b3) out:b4
+  5: in:00 (c6) out:c7
+PASSED
+components/RegIncr/RegIncr_test.py::test_overflow
+  2: in:00 (00) out:01
+  3: in:fe (00) out:01
+  4: in:ff (fe) out:ff
+  5: in:00 (ff) out:00
+PASSED
+components/RegIncr/RegIncr_test.py::test_random
+  2: in:8b (00) out:01
+  3: in:05 (8b) out:8c
+  4: in:cf (05) out:06
+  5: in:62 (cf) out:d0
+  6: in:44 (62) out:63
+  7: in:89 (44) out:45
+  8: in:58 (89) out:8a
+  9: in:3c (58) out:59
+ 10: in:cf (3c) out:3d
+ 11: in:66 (cf) out:d0
+ 12: in:c5 (66) out:67
+ 13: in:6a (c5) out:c6
+ 14: in:09 (6a) out:6b
+ 15: in:40 (09) out:0a
+ 16: in:64 (40) out:41
+ 17: in:eb (64) out:65
+ 18: in:04 (eb) out:ec
+ 19: in:6b (04) out:05
+ 20: in:ad (6b) out:6c
+ 21: in:60 (ad) out:ae
+ 22: in:4b (60) out:61
+ 23: in:b9 (4b) out:4c
+ 24: in:a2 (b9) out:ba
+ 25: in:a7 (a2) out:a3
+ 26: in:e9 (a7) out:a8
+ 27: in:7d (e9) out:ea
+ 28: in:64 (7d) out:7e
+ 29: in:46 (64) out:65
+ 30: in:b3 (46) out:47
+ 31: in:c5 (b3) out:b4
+ 32: in:b3 (c5) out:c6
+ 33: in:65 (b3) out:b4
+ 34: in:27 (65) out:66
+ 35: in:96 (27) out:28
+ 36: in:59 (96) out:97
+ 37: in:d1 (59) out:5a
+ 38: in:2d (d1) out:d2
+ 39: in:2b (2d) out:2e
+ 40: in:7c (2b) out:2c
+ 41: in:d2 (7c) out:7d
+PASSED
