@@ -36,7 +36,7 @@ class ALU( Model ):
          elif s.reg_operation == 5: # Less than
             s.result.value = s.reg_op1 < s.reg_op2
          elif s.reg_operation == 6: # Equal
-            s.result.value = reduce_and(s.reg_op1^s.reg_op2)
+            s.result.value = s.reg_op1 == s.reg_op2
          else:
             s.result.value = Bits(width, 0)
 
