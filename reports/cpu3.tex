@@ -68,22 +68,30 @@ Utilizing the paramiterzation features of py-MTL I am able to use one generic Mu
     \item Operand Mux
     \item PC Mux
 \end{itemize}
-\lstinputlisting[language=python]{components/MUX/MUX.py}
+\lstinputlisting[language=python]{components/MUX/Mux.py}
 
 \section{Register File}
 \lstinputlisting[language=python]{components/RegFile/RegFile.py}
 \subsection{Test-bench}
 \lstinputlisting[language=python]{components/RegFile/RegFile_test.py}
-\subsection{Testing Results}
-\lstinputlisting{reports/RegFile_test.txt}
 
 \section{Arithmetic and Logic unit}
 \lstinputlisting[language=python]{components/ALU/ALU.py}
 \subsection{Test-bench}
 \lstinputlisting[language=python]{components/ALU/ALU_test.py}
-\subsection{Testing Results}
-\lstinputlisting{reports/ALU_test.txt}
 
 \section{PC Adder}
+
+\section{Testbench Results}
+\subsection{Register Model Test Results}
+\lstinputlisting{reports/Reg_test.txt}
+\subsection{Register Incrementer Model Test Results}
+\lstinputlisting{reports/RegIncr_test.txt}
+\subsection{Multiplexer Model Test Results}
+\lstinputlisting{reports/Mux_test.txt}
+\subsection{Register File Model Test Results}
+\lstinputlisting{reports/RegFile_test.txt}
+\subsection{ALU Model Test Results}
+\lstinputlisting{reports/ALU_test.txt}
 
 \end{document}

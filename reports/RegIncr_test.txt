@@ -1,0 +1,35 @@
+components/RegIncr/RegIncr_test.py::test_small
+  2: in:00 (00) out:01
+  3: in:03 (00) out:01
+  4: in:06 (03) out:04
+  5: in:00 (06) out:07
+PASSED
+components/RegIncr/RegIncr_test.py::test_large
+  2: in:a0 (00) out:01
+  3: in:b3 (a0) out:a1
+  4: in:c6 (b3) out:b4
+  5: in:00 (c6) out:c7
+PASSED
+components/RegIncr/RegIncr_test.py::test_overflow
+  2: in:00 (00) out:01
+  3: in:fe (00) out:01
+  4: in:ff (fe) out:ff
+  5: in:00 (ff) out:00
+PASSED
+components/RegIncr/RegIncr_test.py::test_random
+  2: in:8b (00) out:01
+  3: in:05 (8b) out:8c
+  4: in:cf (05) out:06
+  5: in:62 (cf) out:d0
+  6: in:44 (62) out:63
+  7: in:89 (44) out:45
+  8: in:58 (89) out:8a
+  9: in:3c (58) out:59
+ 10: in:cf (3c) out:3d
+ 11: in:66 (cf) out:d0
+ 12: in:c5 (66) out:67
+ 13: in:6a (c5) out:c6
+ 14: in:09 (6a) out:6b
+ 15: in:40 (09) out:0a
+ 16: in:64 (40) out:41
+PASSED
