@@ -49,8 +49,9 @@ Models are presented in the following format, model and testbench together with 
 \clearpage
 
 \section{Register}
-\lstinputlisting[language=python,firstline=3,lastline=16]{components/Reg/Reg.py}
+\lstinputlisting[language=python,firstline=1,lastline=23]{components/Reg/Reg.py}
 \subsection{Testbench}
+\lstinputlisting[language=python,firstline=1,lastline=25]{components/Reg/Reg_test.py}
 
 \subsection{Register Incrementer}
 \lstinputlisting[language=python]{components/RegIncr/RegIncr.py}
@@ -58,9 +59,11 @@ Models are presented in the following format, model and testbench together with 
 \lstinputlisting[language=python]{components/RegIncr/RegIncr_test.py}
 
 \subsection{Register Shifter}
-\lstinputlisting[language=python,firstline=19,lastline=31]{components/Reg/Reg.py}
+\lstinputlisting[language=python,firstline=25,lastline=37]{components/Reg/Reg.py}
 \subsection{Testbench}
+\lstinputlisting[language=python,firstline=27,lastline=35]{components/Reg/Reg.py}
 
+\clearpage
 \section{Multiplexers}
 Utilizing the paramiterzation features of py-MTL I am able to use one generic Multiplexer model for all multiplexers required by the design:
 \begin{itemize}
@@ -69,12 +72,16 @@ Utilizing the paramiterzation features of py-MTL I am able to use one generic Mu
     \item PC Mux
 \end{itemize}
 \lstinputlisting[language=python]{components/MUX/Mux.py}
+\subsection{Testbench}
+\lstinputlisting[language=python]{components/MUX/Mux_test.py}
 
+\clearpage
 \section{Register File}
 \lstinputlisting[language=python]{components/RegFile/RegFile.py}
 \subsection{Test-bench}
 \lstinputlisting[language=python]{components/RegFile/RegFile_test.py}
 
+\clearpage
 \section{Arithmetic and Logic unit}
 \lstinputlisting[language=python]{components/ALU/ALU.py}
 \subsection{Test-bench}

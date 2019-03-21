@@ -1,0 +1,6 @@
+components/ALU/PC_Adder_test.py::test_add_fixed
+  2: OP1:01 OP2:01 Result:02
+  3: OP1:03 OP2:04 Result:07
+  4: OP1:ff OP2:00 Result:ff
+  5: OP1:02 OP2:ff Result:01
+PASSED
