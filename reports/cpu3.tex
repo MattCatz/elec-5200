@@ -1,6 +1,7 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 \usepackage{listings}
+\usepackage[margin=.75in]{geometry}  % Sets the margins
 
 \usepackage{color}
  
@@ -38,15 +39,27 @@
 
 \maketitle
 
-For this section of the project I chose to model the CPU using the python library \texttt{py-MTL}. I chose this it allows me to focus and implement more complex ideas while still remaining productive. Ultimately I would like to transform this into a pipe-lined processor once the single cycle design is verified. 
+For this section of the project I chose to model the CPU using the python library \texttt{py-MTL}. I chose this it allows me to focus and implement more complex ideas while still remaining productive. Ultimately I would like to transform this into a pipe-lined processor once the single cycle design is verified. One important note is that the \texttt{py-MTL} models have an implicit \texttt{Clock} and \texttt{Reset} signal.
+
+Compared to the previous report, This design splits the \texttt{Program Counter} into a basic register and a register incrementer. This was done to simplify the hardware.
+
+Models are presented in the following format, model and testbench together with the listing result at the end. This was done for brevity.
 
 \tableofcontents
 \clearpage
 
-\section{Registers}
-\subsection{Immediate Register}
+\section{Register}
+\lstinputlisting[language=python,firstline=3,lastline=16]{components/Reg/Reg.py}
+\subsection{Testbench}
 
-\subsection{Program Counter Register}
+\subsection{Register Incrementer}
+\lstinputlisting[language=python]{components/RegIncr/RegIncr.py}
+\subsection{Testbench}
+\lstinputlisting[language=python]{components/RegIncr/RegIncr_test.py}
+
+\subsection{Register Shifter}
+\lstinputlisting[language=python,firstline=19,lastline=31]{components/Reg/Reg.py}
+\subsection{Testbench}
 
 \section{Multiplexers}
 Utilizing the paramiterzation features of py-MTL I am able to use one generic Multiplexer model for all multiplexers required by the design:
@@ -59,9 +72,17 @@ Utilizing the paramiterzation features of py-MTL I am able to use one generic Mu
 
 \section{Register File}
 \lstinputlisting[language=python]{components/RegFile/RegFile.py}
+\subsection{Test-bench}
+\lstinputlisting[language=python]{components/RegFile/RegFile_test.py}
+\subsection{Testing Results}
+\lstinputlisting{reports/RegFile_test.txt}
 
 \section{Arithmetic and Logic unit}
 \lstinputlisting[language=python]{components/ALU/ALU.py}
+\subsection{Test-bench}
+\lstinputlisting[language=python]{components/ALU/ALU_test.py}
+\subsection{Testing Results}
+\lstinputlisting{reports/ALU_test.txt}
 
 \section{PC Adder}
 
