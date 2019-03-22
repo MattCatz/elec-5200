@@ -1,3 +1,12 @@
+typedef enum logic [5:0] {
+   ALU_ADD,
+   ALU_SUB,
+   ALU_AND,
+   ALU_OR,
+   ALU_GT,
+   ALU_ET
+} alu_func_t;
+
 module alu
 #(parameter length = 16)
  ( input [length-1:0] A,B,               
