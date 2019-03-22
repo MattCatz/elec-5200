@@ -1,3 +1,6 @@
+import os
+import inspect
+
 from pymtl import *
  
 class RegFile( Model ):
@@ -32,11 +35,11 @@ class RegFile( Model ):
 
 
 
-class RegFile_Verilog (VerilogModel):
+class regfile (VerilogModel):
 
-   vprefix = "regfile"
-
-   def __init( s ):
+   def __init__( s, dtype = 16, nregs = 8 ):
+      addr_len = clog2( nregs )
+      
       s.rX_address = InPort ( Bits(addr_len) )
       s.rY_address = InPort ( Bits(addr_len) )
       s.rZ_address = InPort ( Bits(addr_len) )
@@ -46,8 +49,18 @@ class RegFile_Verilog (VerilogModel):
 
       s.rZ = InPort ( dtype )
 
+      s.clk_en = InPort (1)
+
+      s.regs = [ Wire( dtype ) for _ in range(nregs) ]
+      
+      s.set_params({
+         "dtype"    : dtype,
+         "nregs"    : nregs,
+         "addr_len" : addr_len
+      })
+
       s.set_ports({
-         'clock'       : s.clock,
+         'clock'       : s.clk,
          'clk_en'      : s.clk_en,
          'reset'       : s.reset,
          'rX_address'  : s.rX_address,
@@ -60,5 +73,5 @@ class RegFile_Verilog (VerilogModel):
 
 
    def line_trace( s ):
-      return [x.hex() for x in s.regs]
+      return ""#[x.hex() for x in s.regs]
 
