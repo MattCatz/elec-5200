@@ -19,7 +19,7 @@ integer i;
 
 // Read and write from register file
 always_ff @(posedge clock)
-        if (clk_en) registers[rZ_address] <= rZ;
+        if (clk_en) registers[rZ_address] <= rZ_address > 0 ? rZ : 0;
 
 assign rX = registers[rX_address];
 assign rY = registers[rY_address];

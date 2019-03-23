@@ -17,11 +17,13 @@ class RegFile( Model ):
 
       s.rZ = InPort ( dtype )
 
+      s.clk_en = InPort (1)
+
       s.regs = [ Wire( dtype ) for _ in range(nregs) ]
 
       @s.posedge_clk
       def write():
-         if s.rZ_address != 0:
+         if s.clk_en and s.rZ_address != 0:
             s.regs[s.rZ_address].next = s.rZ
    
       @s.combinational
@@ -70,6 +72,11 @@ class regfile (VerilogModel):
          'rY'          : s.rY,
          'rZ'          : s.rZ,
       })
+
+      @s.posedge_clk
+      def write():
+         if s.rZ_address != 0:
+            s.regs[s.rZ_address].next = s.rZ
 
 
    def line_trace( s ):
