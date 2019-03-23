@@ -1,3 +1,3 @@
 #! /bin/bash
-mkdir ./build
+mkdir -p ./build
 source ~/venvs/pymtl/bin/activate
