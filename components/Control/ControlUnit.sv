@@ -1,28 +1,46 @@
-module Control_Unit 
-(input operation,
- input funct,
- output pc_s,
- output operand_s,
- output reg alu_s,
- output data_s);
+import constants::alu_func_t;
 
-always_comb begin
+import constants::*;
+//import constants::ALU_SUB;
+//import constants::ALU_AND;
+//import constants::ALU_OR;
+//import constants::ALU_GT;
+//import constants::ALU_ET;
+//import constants::ALU_NOP;
+
+import constants::data_s_t;
+
+import constants::DATA_ALU;
+import constants::DATA_WORD;
+import constants::DATA_PC;
+import constants::DATA_NOP;
+
+module ControlUnit 
+(input  [1:0] operation,
+ input  [2:0] funct,
+ output [2:0] pc_s,
+ output [2:0] operand_s,
+ output alu_func_t alu_s,
+ output data_s_t data_s);
+
+always_comb begin // ALU control
     case (operation)
-        0: //Add
-            assign alu_s = 1;
-        1: //Subtraction
-            assign alu_s = 2;
-        2: //Logical and 
-            assign alu_s = 3;
-        3: //Logical or
-            assign alu_s = 4;
-        4: //Set Less than
-            assign alu_s = 3;
-        8: //Load Word
-            assign alu_s = 4;
+        ISA_SUB: alu_s = ALU_SUB;
+        ISA_AND: alu_s = ALU_AND;
+        ISA_OR:  alu_s = ALU_OR;
+        ISA_SLT: alu_s = ALU_GT;
+        ISA_BEQ: alu_s = ALU_ET;
         default:
-            assign alu_s = 0;
+            alu_s = ALU_ADD;
         endcase
+end
+
+always_comb begin // Data Control
+    case (operation)
+    0: data_s = DATA_ALU;
+    default:
+        data_s = DATA_NOP;
+    endcase
 end
 
 endmodule

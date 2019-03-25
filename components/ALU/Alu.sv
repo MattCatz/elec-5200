@@ -1,16 +1,17 @@
-typedef enum logic [5:0] {
-   ALU_ADD,
-   ALU_SUB,
-   ALU_AND,
-   ALU_OR,
-   ALU_GT,
-   ALU_ET
-} alu_func_t;
+import constants::alu_func_t;
+
+import constants::ALU_ADD;
+import constants::ALU_SUB;
+import constants::ALU_AND;
+import constants::ALU_OR;
+import constants::ALU_GT;
+import constants::ALU_ET;
+import constants::ALU_NOP;
 
 module alu
 #(parameter length = 16)
- ( input [length-1:0] A,B,
-   input [2:0] sel,
+ ( input [length-1:0] A,B,               
+   input alu_func_t sel,
    output [length-1:0] out);
   
    reg [length-1:0] result;
@@ -19,17 +20,17 @@ module alu
 
    always_comb begin
       case(sel)
-         1: // Addition
+         constants::ALU_ADD: // Addition
             result = A + B ; 
-         2: // Subtraction
+         constants::ALU_SUB: // Subtraction
             result = A - B ;
-         3: //  Logical and 
+         constants::ALU_AND: //  Logical and 
             result = A & B;
-         4: //  Logical or
+         constants::ALU_OR: //  Logical or
             result = A | B;
-         5: // Greater comparison
+         constants::ALU_GT: // Greater comparison
             result = (A>B)? 1 : 0;
-         6: // Equal comparison   
+         constants::ALU_ET: // Equal comparison   
             result = (A==B)? 1 : 0;
          default: result = 0 ; 
       endcase
