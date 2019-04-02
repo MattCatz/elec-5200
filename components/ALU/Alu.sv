@@ -9,7 +9,7 @@ typedef enum logic [5:0] {
 
 module alu
 #(parameter length = 16)
- ( input [length-1:0] A,B,               
+ ( input [length-1:0] A,B,
    input [2:0] sel,
    output [length-1:0] out);
   

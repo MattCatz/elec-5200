@@ -73,11 +73,6 @@ class regfile (VerilogModel):
          'rZ'          : s.rZ,
       })
 
-      @s.posedge_clk
-      def write():
-         if s.rZ_address != 0:
-            s.regs[s.rZ_address].next = s.rZ
-
 
    def line_trace( s ):
       return ""#[x.hex() for x in s.regs]
