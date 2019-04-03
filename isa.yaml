@@ -1,0 +1,66 @@
+instructions:
+  RR: &RR
+    opcode: 0x0
+    format: '00{i[ry]:03b}{i[rx]:03b}{i[function]:03b}{i[rz]:03b}{i[opcode]:02b}'
+    # format:
+    #   padding: 2
+    #   ry: 3
+    #   rx: 3
+    #   rz: 3
+    #   function:  3
+    #   opcode: 2
+  RI: &RI
+    opcode: 0x1
+    format: '{i[kk]:05b}{i[rx]:03b}{i[function]:03b}{i[rz]:03b}{i[opcode]:02b}'
+    # format:
+    #   kk: 5
+    #   rx: 3
+    #   rz: 3
+    #   function:  3
+    #   opcode: 2
+  ADD:
+    <<: *RR
+    function: 0x0
+  SUB:
+    <<: *RR
+    function: 0x1
+  AND:
+    <<: *RR
+    function: 0x2
+  OR:
+    <<: *RR
+    function: 0x3
+  SLT:
+    <<: *RR
+    function: 0x4
+  LOAD:
+    <<: *RI
+    function: 0x0
+  STOR:
+    <<: *RI
+    function: 0x1
+  ADDI:
+    <<: *RI
+    function: 0x2
+  LUI:
+    <<: *RI
+    function: 0x3
+  JAL:
+    opcode: 0x2
+    format: '{i[kk]:05b}{i[rx]:03b}{i[function]:03b}{i[rz]:03b}{i[opcode]:02b}'
+  BEQ:
+    opcode: 0x3
+    format: '{i[kk]:05b}{i[rx]:03b}{i[function]:03b}{i[rz]:03b}{i[opcode]:02b}'
+    fields:
+      kk:
+        - [15,14]
+        - [7,6,5,4,3,2]
+registers:
+  zero: 0
+  r0: 0
+  r1: 1
+  r2: 2
+  r3: 3
+  r4: 4
+  r5: 5
+  r6: 6
