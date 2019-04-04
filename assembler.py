@@ -13,25 +13,47 @@ def get_isa(file_name):
 			print(e)
 	return ISA
 
+
+def pop_bits(value, split):
+	if value.bit_length() <= split:
+		return (value, 0)
+	mask = ((1 << split) - 1) << (value.bit_length() - split)
+	return ((value & mask) >> (value.bit_length() - split), value & ~mask)
+
+
 def enumerate_syntax(instruction, ISA, symbol_table):
 	temp = copy.deepcopy(ISA['instructions'][instruction['memonic']])
+	temp['memonic'] = instruction['memonic']
 	temp['rx'] = ISA['registers'][instruction['rx']]
 	temp['rz'] = ISA['registers'][instruction['rz']]
 	if instruction['ry'] is not None and instruction['ry'] in ISA['registers']:
 		temp['ry'] = ISA['registers'][instruction['ry']]
-	if instruction['ry'] is not None and instruction['ry'] in symbol_table:
+	if instruction['memonic'] == 'BEQ' and instruction['ry'] in symbol_table:
 		# This is a branch label
-		temp['kk'] = int(instruction['ry'])
+		temp['kk'] = symbol_table[instruction['ry']]
+		temp['rx'] = temp['rz']
+		temp['ry'] = temp['rx']
+	if instruction['memonic'] == 'BEQ' and instruction['ry'] not in symbol_table:
+		# This is a branch address
+		temp['kk'] = instruction['ry']
+		temp['rx'] = temp['rz']
+		temp['ry'] = temp['rx']
 	if instruction['kk'] is not None:
 		temp['kk'] = int(instruction['kk'])
-
 	return temp
 
 
-def format_instruction(instruction, ISA, symbol_table):
-	tokens = enumerate_syntax(instruction, ISA, symbol_table)
-	return tokens['format'].format(i=tokens)
-
+def encode_instruction(tokens, ISA, symbol_table):
+	temp = 0
+	for fields in tokens['format']:
+		field_name = fields.pop(0)
+		value = tokens[field_name]
+		for start, length in fields:
+			section, value = pop_bits(value, length)
+			temp = temp + ((section << (start - length + 1)))
+		if value != 0:
+			raise ValueError('Value larger than field: {} {}'.format(value,length))
+	return format(temp, '016b')
 
 def main():
 	label_re = r'(?P<label>\w+)?\s*:?\s*'
@@ -40,8 +62,7 @@ def main():
 	rx_re = r'(?P<rx>\w+)\s*,\s*'
 	ry_or_kk_re = r'(?P<kk>\d+)?(?P<ry>\w+)?'
 	offset = r'?\[?(?P<offset>\d+)?\]?'
-	pattern = label_re + memonic_re + rz_re + rx_re + ry_or_kk_re
-	prog = re.compile(pattern)
+	prog = re.compile(label_re + memonic_re + rz_re + rx_re + ry_or_kk_re)
 
 	pc = 0
 	symbol_table = {}
@@ -52,7 +73,6 @@ def main():
 	ISA = get_isa("isa.yaml")
 
 	# First Pass
-
 	with open("test.asm", 'r') as fp:
 		line = fp.readline()
 		while line:
@@ -63,9 +83,11 @@ def main():
 			line = fp.readline()
 
 	# Second Pass
-
 	for instruction in program:
-		print(format_instruction(instruction, ISA, symbol_table))
+		tokens = enumerate_syntax(instruction, ISA, symbol_table)
+		binary = encode_instruction(tokens, ISA, symbol_table)
+		pretty_print = tokens['print'].format(i=tokens)
+		print("{0} {1}".format(binary, pretty_print))
 
 
 if __name__ == "__main__" : main()

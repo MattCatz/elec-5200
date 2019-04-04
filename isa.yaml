@@ -1,23 +1,29 @@
+tokens:
+  label_re: r'(?P<label>\w+)?\s*:?\s*'
+  memonic_re: r'(?P<memonic>\w+)\s+'
+  rz_re: r'(?P<rz>\w+)\s*,\s*'
+  rx_re: r'(?P<rx>\w+)\s*,\s*'
+  ry_or_kk_re: r'(?P<kk>\d+)?(?P<ry>\w+)?'
+  offset_re: r'?\[?(?P<offset>\d+)?\]?'
 instructions:
   RR: &RR
     opcode: 0x0
-    format: '00{i[ry]:03b}{i[rx]:03b}{i[function]:03b}{i[rz]:03b}{i[opcode]:02b}'
-    # format:
-    #   padding: 2
-    #   ry: 3
-    #   rx: 3
-    #   rz: 3
-    #   function:  3
-    #   opcode: 2
+    print: '{i[memonic]} {i[rz]} {i[rx]} {i[ry]}'
+    format:
+      - [ry,[13,3]]
+      - [rx,[10,3]]
+      - [function,[7,3]]
+      - [rz,[4,3]]
+      - [opcode,[1,2]]
   RI: &RI
     opcode: 0x1
-    format: '{i[kk]:05b}{i[rx]:03b}{i[function]:03b}{i[rz]:03b}{i[opcode]:02b}'
-    # format:
-    #   kk: 5
-    #   rx: 3
-    #   rz: 3
-    #   function:  3
-    #   opcode: 2
+    print: '{i[memonic]} {i[rz]} {i[rx]} {i[kk]}'
+    format:
+      - [kk, [15, 5]]
+      - [rx,[10,3]]
+      - [function,[7,3]]
+      - [rz,[4,3]]
+      - [opcode,[1,2]]
   ADD:
     <<: *RR
     function: 0x0
@@ -47,14 +53,19 @@ instructions:
     function: 0x3
   JAL:
     opcode: 0x2
-    format: '{i[kk]:05b}{i[rx]:03b}{i[function]:03b}{i[rz]:03b}{i[opcode]:02b}'
+    print: '{i[memonic]} {i[rz]} {i[kk]}'
+    format:
+      - [kk, [15,11]]
+      - [rz,[4,3]]
+      - [opcode,[1,2]]
   BEQ:
     opcode: 0x3
-    format: '{i[kk]:05b}{i[rx]:03b}{i[function]:03b}{i[rz]:03b}{i[opcode]:02b}'
-    fields:
-      kk:
-        - [15,14]
-        - [7,6,5,4,3,2]
+    print: '{i[memonic]} {i[rx]} {i[ry]} {i[kk]}'
+    format:
+      - [kk, [7,6], [15,2]]
+      - [ry,[13,3]]
+      - [rx,[10,3]]
+      - [opcode,[1,2]]
 registers:
   zero: 0
   r0: 0
