@@ -63,7 +63,7 @@ class regfile (VerilogModel):
 
       s.set_ports({
          'clock'       : s.clk,
-         'clk_en'      : s.clk_en,
+         'we'      : s.clk_en,
          'reset'       : s.reset,
          'rX_address'  : s.rX_address,
          'rY_address'  : s.rY_address,
@@ -72,6 +72,7 @@ class regfile (VerilogModel):
          'rY'          : s.rY,
          'rZ'          : s.rZ,
       })
+
 
 
    def line_trace( s ):

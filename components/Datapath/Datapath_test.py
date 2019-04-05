@@ -15,13 +15,13 @@ class Datapath( VerilogModel ):
       s.data_s = InPort(4)
       s.operand_s = InPort(2)
       s.pc_s = InPort(1)
-      s.word_r = InPort(1)
+      s.word_r = InPort(16)
       s.immediate = InPort(8)
       s.pc = OutPort(12)
       s.word_w = OutPort(16)
       s.word_a = OutPort(10)
-      _auto_init()
 
 
 def test_simple( dump_vcd ):
    model = Datapath()
+   model._auto_init()

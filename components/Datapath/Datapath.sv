@@ -1,5 +1,11 @@
+`include "Constants.sv"
+import constants::alu_func_t;
+import constants::data_s_t;
+import constants::operand_s_t;
+import constants::pc_s_t;
+
 module Datapath
-(input clock,
+(input clk,
  input reset,
  input regfile_w,
  input [2:0] rX_address,rY_address,rZ_address,
@@ -13,53 +19,46 @@ module Datapath
  output [15:0] word_w,
  output [9:0] word_a);
 
-import constants::data_s_t;
-
 import constants::DATA_ALU;
 import constants::DATA_WORD;
 import constants::DATA_PC;
+import constants::DATA_NOP;
+
+import constants::PC_ADD;
+import constants::PC_INC;
 
 logic [15:0] rX, rY, rZ;
 logic [15:0] alu_out;
 
-reg [11:0] program_counter;
+reg [11:0] program_counter, next_pc;
 assign pc = program_counter;
-
-// Begin Program Counter Stuff
-
-//logic [15:0] pc_mux [1:0];
-
-//assign pc_mux[PC_ALU] = alu_out;
-//assign pc_mux[PC_ADD] = program_counter + immediate;
-//assign pc_mux[PC_INC] = program_counter + 1;
-
+ 
+always_ff@(posedge clk) begin
+   program_counter <= next_pc;
+end
+ 
 always_comb begin
     unique case (pc_s)
-        PC_ADD: program_counter = program_counter + immediate;
-        PC_INC: program_counter = program_counter + 1;
+        PC_ADD: next_pc = program_counter + 12'(immediate);
+        PC_INC: next_pc = program_counter + 12'b1;
     endcase;
 end
 
-// Begin Register File stuff
-//logic [15:0] data_mux [2:0];
-
-//assign data_mux[0] = alu_out;
-//assign data_mux[1] = word_r;
-//assign data_mux[2] = program_counter;
 
 always_comb begin
     unique case (data_s)
         DATA_ALU: rZ = alu_out;
         DATA_WORD: rZ = word_r;
-        DATA_PC: rZ = program_counter;
+        DATA_PC: rZ = 16'(program_counter);
         DATA_NOP: rZ = 16'd0;
+	default: rZ = 16'bX;
     endcase
 end
 
 assign word_w = rY;
 
 regfile GPR (
- .clock(clock),
+ .clock(clk),
  .we(regfile_w),
  .reset(reset),
  .rX_address(rX_address),  
@@ -73,10 +72,10 @@ regfile GPR (
 logic [15:0] operand_mux [2:0];
 
 assign operand_mux[0] = rY;
-assign operand_mux[1] = immediate;
-assign operand_mux[2] = immediate << 8;
+assign operand_mux[1] = 16'(immediate);
+assign operand_mux[2] = {immediate, 8'b0};
 
-assign word_a = alu_out;
+assign word_a = 10'(alu_out);
 
 alu ALU  ( 
  .A(rX),

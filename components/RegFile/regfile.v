@@ -3,7 +3,7 @@ module regfile
             nregs = 8,
             addr_len = $clog2(nregs))
 (input clock,
- input clk_en,
+ input we,
  input reset,
  input [addr_len-1:0] rX_address,  
  output [dtype-1:0] rX,
@@ -17,7 +17,7 @@ logic [dtype-1:0] registers [nregs-1:0];
 
 // Read and write from register file
 always_ff @(posedge clock)
-        if (clk_en) registers[rZ_address] <= |rZ_address ? rZ : 0;
+        if (we) registers[rZ_address] <= |rZ_address ? rZ : 0;
 
 assign rX = registers[rX_address];
 assign rY = registers[rY_address];

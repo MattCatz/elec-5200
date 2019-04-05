@@ -1,3 +1,5 @@
+`ifndef CPU_CONSTANTS
+`define CPU_CONSTANTS
 package constants;
 
 typedef enum logic [1:0] {
@@ -66,3 +68,4 @@ typedef enum logic [4:0] {
 } isa_t;
 
 endpackage
+`endif
