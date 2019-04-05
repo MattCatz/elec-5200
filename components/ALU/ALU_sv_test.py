@@ -25,7 +25,7 @@ def test_sub_fixed( dump_vcd ):
 
 
 def test_sub_random( dump_vcd ):
-   run_test_vector_sim( ALU_SV(16), test_vector_table, dump_vcd )
+   run_test_vector_sim( ALU_SV(16), random_sub_vector, dump_vcd )
 
 
 def test_and_fixed( dump_vcd ):
@@ -33,7 +33,7 @@ def test_and_fixed( dump_vcd ):
 
 
 def test_and_random( dump_vcd ):
-   run_test_vector_sim( ALU_SV(16), test_vector_table, dump_vcd )
+   run_test_vector_sim( ALU_SV(16), random_and_vector, dump_vcd )
 
 
 def test_or_fixed( dump_vcd ):
@@ -41,7 +41,7 @@ def test_or_fixed( dump_vcd ):
 
 
 def test_or_random( dump_vcd ):
-   run_test_vector_sim( ALU_SV(16), test_vector_table, dump_vcd )
+   run_test_vector_sim( ALU_SV(16), random_or_vector, dump_vcd )
 
 
 def test_less_than_fixed( dump_vcd ):
@@ -49,7 +49,7 @@ def test_less_than_fixed( dump_vcd ):
 
 
 def test_less_than_random( dump_vcd ):
-   run_test_vector_sim( ALU_SV(16), test_vector_table, dump_vcd )
+   run_test_vector_sim( ALU_SV(16), random_LT_vector, dump_vcd )
 
 
 def test_equal_fixed( dump_vcd ):
@@ -57,10 +57,6 @@ def test_equal_fixed( dump_vcd ):
 
 
 def test_equal_random( dump_vcd ):
-   run_test_vector_sim( ALU_SV(16), test_vector_table, dump_vcd )
-
-
-def test_invalid_operation( dump_vcd ):
-   run_test_vector_sim( ALU_SV(16), test_vector_table, dump_vcd )
+   run_test_vector_sim( ALU_SV(16), random_ET_vector, dump_vcd )
 
 

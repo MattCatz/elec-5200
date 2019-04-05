@@ -40,13 +40,12 @@ class alu( VerilogModel ):
       s.operation = InPort ( Bits(3) )
 
       s.set_params({
-         "width"    : width,
+         "length"    : width,
       })
 
       s.set_ports({
-         'clock'       : s.clk,
          'A'           : s.op1,
          'B'           : s.op2,
          'sel'         : s.operation,
-         'result'      : s.result
+         'out'      : s.result
       })
