@@ -111,7 +111,6 @@ def test_or_random( dump_vcd ):
 
 
 def test_less_than_fixed( dump_vcd ):
-   print "Testing Less than with fixed imput"
    run_test_vector_sim( ALU( 16 ), fixed_LT_vector, dump_vcd)
 
 
@@ -120,7 +119,6 @@ def test_less_than_random( dump_vcd ):
 
 
 def test_equal_fixed( dump_vcd ):
-   print "Testing Equals with fixed imput"
    run_test_vector_sim( ALU( 16 ), fixed_ET_vector, dump_vcd)
 
 
