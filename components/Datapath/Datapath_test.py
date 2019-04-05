@@ -1,4 +1,8 @@
+import random
+import pytest
+
 from pymtl import *
+from pclib.test import run_test_vector_sim
 
 class Datapath( VerilogModel ):
 
@@ -17,3 +21,7 @@ class Datapath( VerilogModel ):
       s.word_w = OutPort(16)
       s.word_a = OutPort(10)
       _auto_init()
+
+
+def test_simple( dump_vcd ):
+   model = Datapath()
