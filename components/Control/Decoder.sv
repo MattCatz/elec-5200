@@ -14,7 +14,7 @@ module Decoder(
     assign func = word[7:5];
     
     always_comb begin
-        case (opcode)
+        unique case (opcode)
             1: kk = word[15:11];
             2: kk = {word[15:11], word[7:5] };
             3: kk = {word[15:14], word[7:2] };
