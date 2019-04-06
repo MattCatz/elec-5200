@@ -1,3 +1,9 @@
+`include "Constants.sv"
+import constants::alu_func_t;
+import constants::data_s_t;
+import constants::operand_s_t;
+import constants::pc_s_t;
+
 module ControlUnit 
 (input  [1:0] operation,
  input  [2:0] funct,
