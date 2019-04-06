@@ -41,7 +41,7 @@
 
 For this section of the project I chose to model the CPU using the python library \texttt{py-MTL}. I chose this it allows me to focus and implement more complex ideas while still remaining productive. Ultimately I would like to transform this into a pipe-lined processor once the single cycle design is verified. One important note is that the \texttt{py-MTL} models have an implicit \texttt{Clock} and \texttt{Reset} signal.
 
-Compared to the previous report, This design splits the \texttt{Program Counter} into a basic register and a register incrementer. This was done to simplify the hardware.
+Compared to the previous report, This design splits the \texttt{Program Counter} into a basic register and a register incrementer. This was done to simplify the hardware. Please refer to the previouse report for each parts function.
 
 Models are presented in the following format, model and testbench together with the listing result at the end. This was done for brevity.
 
@@ -63,7 +63,6 @@ Models are presented in the following format, model and testbench together with 
 \subsection{Testbench}
 \lstinputlisting[language=python,firstline=27,lastline=35]{components/Reg/Reg.py}
 
-\clearpage
 \section{Multiplexers}
 Utilizing the paramiterzation features of py-MTL I am able to use one generic Multiplexer model for all multiplexers required by the design:
 \begin{itemize}
@@ -72,22 +71,24 @@ Utilizing the paramiterzation features of py-MTL I am able to use one generic Mu
     \item PC Mux
 \end{itemize}
 \lstinputlisting[language=python]{components/MUX/Mux.py}
+\clearpage
 \subsection{Testbench}
 \lstinputlisting[language=python]{components/MUX/Mux_test.py}
 
-\clearpage
 \section{Register File}
 \lstinputlisting[language=python]{components/RegFile/RegFile.py}
 \subsection{Test-bench}
 \lstinputlisting[language=python]{components/RegFile/RegFile_test.py}
 
-\clearpage
 \section{Arithmetic and Logic unit}
 \lstinputlisting[language=python]{components/ALU/ALU.py}
 \subsection{Test-bench}
 \lstinputlisting[language=python]{components/ALU/ALU_test.py}
 
 \section{PC Adder}
+\lstinputlisting[language=python]{components/ALU/PC_Adder.py}
+\subsection{Test-bench}
+\lstinputlisting[language=python]{components/ALU/PC_Adder_test.py}
 
 \section{Testbench Results}
 \subsection{Register Model Test Results}
@@ -100,5 +101,7 @@ Utilizing the paramiterzation features of py-MTL I am able to use one generic Mu
 \lstinputlisting{reports/RegFile_test.txt}
 \subsection{ALU Model Test Results}
 \lstinputlisting{reports/ALU_test.txt}
+\subsection{PC Adder Model Test Results}
+\lstinputlisting{reports/PC_Adder.txt}
 
 \end{document}
