@@ -29,6 +29,19 @@ non_ordered = {
 
 template_inputs = collections.OrderedDict(non_ordered)
 
+def gen_table_header( inputs ):
+   output = ""
+   for key, value in inputs.iteritems():
+      output = output + key + ' '
+   return output
+
+
+def gen_table_row( inputs ):
+   output = []
+   for key, value in inputs.iteritems():
+      output.append(value)
+   return output
+
 def test_ctr_ADDI( dumpvcd ):
 	# 11011110010 110 01 ADDI 6 6 27
 	table_row = copy.deepcopy(template_inputs)
@@ -39,6 +52,14 @@ def test_ctr_ADDI( dumpvcd ):
 	table_row['alu_s*'] = 0x1
 	table_row['data_s*'] = 0x1
 	table_row['data_w*'] = 0x0
+
+	test_vector = [gen_table_header(temp)]
+	test_vector.append(gen_table_row(table_row)[:])
+
+	model = ControlUnit()
+	model._auto_init()
+
+	run_test_vector_sim(model, test_vector, dump_vcd)
 
 def test_ctr_LOAD( dumpvcd ):
 	# 1000110000010001 LOAD 4 4 17
@@ -51,6 +72,15 @@ def test_ctr_LOAD( dumpvcd ):
 	table_row['data_s*'] = 0x1
 	table_row['data_w*'] = 0x0
 
+	test_vector = [gen_table_header(temp)]
+	test_vector.append(gen_table_row(table_row)[:])
+
+	model = ControlUnit()
+	model._auto_init()
+
+	run_test_vector_sim(model, test_vector, dump_vcd)
+
+
 def test_ctr_STOR( dumpvcd ):
 	# 0000001100101101 STOR 3 3 0
 	table_row = copy.deepcopy(template_inputs)
@@ -61,6 +91,15 @@ def test_ctr_STOR( dumpvcd ):
 	table_row['alu_s*'] = 0x1
 	table_row['data_s*'] = 0x1
 	table_row['data_w*'] = 0x0
+
+	test_vector = [gen_table_header(temp)]
+	test_vector.append(gen_table_row(table_row)[:])
+
+	model = ControlUnit()
+	model._auto_init()
+
+	run_test_vector_sim(model, test_vector, dump_vcd)
+
 
 def test_ctr_LUI( dumpvcd ):
 	# 0100001001101001 LUI 2 2 8
@@ -73,6 +112,15 @@ def test_ctr_LUI( dumpvcd ):
 	table_row['data_s*'] = 0x1
 	table_row['data_w*'] = 0x0
 
+	test_vector = [gen_table_header(temp)]
+	test_vector.append(gen_table_row(table_row)[:])
+
+	model = ControlUnit()
+	model._auto_init()
+
+	run_test_vector_sim(model, test_vector, dump_vcd)
+
+
 def test_ctr_ADD( dumpvcd ):
 	# 0000100100000100 ADD 1 1 1
 	table_row = copy.deepcopy(template_inputs)
@@ -83,6 +131,15 @@ def test_ctr_ADD( dumpvcd ):
 	table_row['alu_s*'] = 0x1
 	table_row['data_s*'] = 0x1
 	table_row['data_w*'] = 0x0
+
+	test_vector = [gen_table_header(temp)]
+	test_vector.append(gen_table_row(table_row)[:])
+
+	model = ControlUnit()
+	model._auto_init()
+
+	run_test_vector_sim(model, test_vector, dump_vcd)
+
 
 def test_ctr_SUB( dumpvcd ):
 	# 0000000000100000 SUB 0 0 0
