@@ -19,7 +19,7 @@ logic [4:0] instruction;
 
 assign instruction = {operation,funct};
 
-assign data_w = ({operation,funct} ^ ISA_STOR) ? 0 : 1;
+assign data_w = |({operation,funct} ^ ISA_STOR) ? 0 : 1;
 
 always_comb begin
     unique case (operation)
@@ -61,7 +61,7 @@ always_comb begin
         ISA_STOR: alu_s = ALU_ADD;
         ISA_LUI: alu_s = ALU_ADD;
         ISA_JAL: alu_s = ALU_ADD;
-        ISA_BEQ: alu_s = ALU_ADD;
+        ISA_BEQ: alu_s = ALU_ET;
         default: alu_s = ALU_NOP;
     endcase
 end

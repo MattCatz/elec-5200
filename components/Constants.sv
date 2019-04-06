@@ -63,8 +63,8 @@ typedef enum logic [4:0] {
     ISA_LOAD = {OP_RI, RI_LOAD},
     ISA_STOR = {OP_RI, RI_STOR},
     ISA_LUI = {OP_RI, RI_LUI},
-    ISA_JAL = {OP_JP, 3'bXXX},
-    ISA_BEQ = {OP_BR, 3'bXXX}
+    ISA_JAL = {OP_JP, 3'b???},
+    ISA_BEQ = {OP_BR, 3'b???}
 } isa_t;
 
 endpackage
