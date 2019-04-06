@@ -95,7 +95,7 @@ def test_ctr_STOR( dump_vcd ):
 	# 0000001100101101 STOR 3 3 0
 	table_row = copy.deepcopy(template_inputs)
 	table_row['operation'] = 0x1
-	table_row['funct'] = 0x3
+	table_row['funct'] = 0x2
 	table_row['pc_s*'] = 0x0
 	table_row['operand_s*'] = 0x1
 	table_row['alu_s*'] = 0x1
@@ -115,7 +115,7 @@ def test_ctr_LUI( dump_vcd ):
 	# 0100001001101001 LUI 2 2 8
 	table_row = copy.deepcopy(template_inputs)
 	table_row['operation'] = 0x1
-	table_row['funct'] = 0x7
+	table_row['funct'] = 0x3
 	table_row['pc_s*'] = 0x0
 	table_row['operand_s*'] = 0x2
 	table_row['alu_s*'] = 0x1
@@ -173,7 +173,7 @@ def test_ctr_AND( dump_vcd ):
 	# 0010110101010100 AND 5 5 5
 	table_row = copy.deepcopy(template_inputs)
 	table_row['operation'] = 0x0
-	table_row['funct'] = 0x3
+	table_row['funct'] = 0x2
 	table_row['pc_s*'] = 0x0
 	table_row['operand_s*'] = 0x0
 	table_row['alu_s*'] = 0x3
@@ -191,7 +191,7 @@ def test_ctr_OR( dump_vcd ):
 	# 0011011001111000 OR 6 6 6
 	table_row = copy.deepcopy(template_inputs)
 	table_row['operation'] = 0x0
-	table_row['funct'] = 0x7
+	table_row['funct'] = 0x3
 	table_row['pc_s*'] = 0x0
 	table_row['operand_s*'] = 0x0
 	table_row['alu_s*'] = 0x4
@@ -209,7 +209,7 @@ def test_ctr_SLT( dump_vcd ):
 	# 0010010010010000 SLT 4 4 4
 	table_row = copy.deepcopy(template_inputs)
 	table_row['operation'] = 0x0
-	table_row['funct'] = 0x6
+	table_row['funct'] = 0x4
 	table_row['pc_s*'] = 0x0
 	table_row['operand_s*'] = 0x0
 	table_row['alu_s*'] = 0x5

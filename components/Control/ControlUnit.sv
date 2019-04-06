@@ -33,7 +33,7 @@ always_comb begin
  always_comb begin
     unique case (operation)
         OP_RR: operand_s = OPERAND_RY;
-        OP_RI: operand_s = OPERAND_KK;
+        OP_RI: operand_s = |(funct ^ RI_LUI) ? OPERAND_KK : OPERAND_SHIFTED;
         OP_BR: operand_s = OPERAND_RY;
         OP_JP: operand_s = OPERAND_NOP;
     endcase
@@ -42,7 +42,7 @@ always_comb begin
  always_comb begin
     unique case (operation)
         OP_RR: data_s = DATA_ALU;
-        OP_RI: data_s = (funct ^ RI_LOAD) ? DATA_ALU : DATA_WORD;
+        OP_RI: data_s = |(funct ^ RI_LOAD) ? DATA_ALU : DATA_WORD;
         OP_JP: data_s = DATA_PC;
         OP_BR: data_s = DATA_PC;
         default: data_s = DATA_NOP;
@@ -50,7 +50,7 @@ always_comb begin
  end
  
 always_comb begin
-    unique casex (instruction)
+    unique casez (instruction)
         ISA_ADD: alu_s = ALU_ADD;
         ISA_SUB: alu_s = ALU_SUB;
         ISA_AND: alu_s = ALU_AND;

@@ -12,26 +12,26 @@ typedef enum logic [1:0] {
 typedef enum logic [2:0] {
     RR_ADD = 3'b000,
     RR_SUB = 3'b001,
-    RR_AND = 3'b011,
-    RR_OR = 3'b111,
-    RR_SLT = 3'b110
+    RR_AND = 3'b010,
+    RR_OR = 3'b011,
+    RR_SLT = 3'b100
 } rr_type;
 
 typedef enum logic [2:0] {
     RI_ADDI = 3'b000,
     RI_LOAD = 3'b001,
-    RI_STOR = 3'b011,
-    RI_LUI = 3'b111
+    RI_STOR = 3'b010,
+    RI_LUI = 3'b011
 } ri_type;
 
 typedef enum logic [2:0] {
-   ALU_NOP,
-   ALU_ADD,
-   ALU_SUB,
-   ALU_AND,
-   ALU_OR,
-   ALU_GT,
-   ALU_ET
+   ALU_NOP = 3'b000,
+   ALU_ADD = 3'b001,
+   ALU_SUB = 3'b010,
+   ALU_AND = 3'b011,
+   ALU_OR  = 3'b100,
+   ALU_GT  = 3'b101,
+   ALU_ET  = 3'b110
 } alu_func_t;
 
 typedef enum logic [3:0] {
