@@ -14,8 +14,8 @@ module Datapath
  input operand_s_t operand_s,
  input pc_s_t pc_s,
  input [15:0] word_r,
- input [7:0] immediate,
- output [11:0] pc,
+ input [10:0] immediate,
+ output [9:0] pc,
  output [15:0] word_w,
  output [9:0] word_a);
 
@@ -30,7 +30,7 @@ import constants::PC_INC;
 logic [15:0] rX, rY, rZ;
 logic [15:0] alu_out;
 
-reg [11:0] program_counter, next_pc;
+reg [9:0] program_counter, next_pc;
 assign pc = program_counter;
  
 always_ff@(posedge clk) begin
@@ -39,8 +39,8 @@ end
  
 always_comb begin
     unique case (pc_s)
-        PC_ADD: next_pc = program_counter + 12'(immediate);
-        PC_INC: next_pc = program_counter + 12'b1;
+        PC_ADD: next_pc = program_counter + 10'(immediate);
+        PC_INC: next_pc = program_counter + 10'b1;
     endcase;
 end
 
@@ -73,7 +73,7 @@ logic [15:0] operand_mux [2:0];
 
 assign operand_mux[0] = rY;
 assign operand_mux[1] = 16'(immediate);
-assign operand_mux[2] = {immediate, 8'b0};
+assign operand_mux[2] = 16'({immediate, 8'b0});
 
 assign word_a = 10'(alu_out);
 

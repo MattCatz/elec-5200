@@ -5,6 +5,10 @@ input clock,
 input reset,
 input logic [2:0] inr,
 input debug,
+input logic [15:0] instruction,
+input logic [15:0] memory_fetch,
+output logic [9:0] pc,
+output logic [9:0] memory_address,
 output logic [15:0] outvalue
 );
 
@@ -24,29 +28,17 @@ data_s_t data_s;
 logic clk_en;
 logic [2:0] rX_address,rY_address,rZ_address;
 logic [2:0] alu_ctr;
-logic [7:0] immediate;
-logic [11:0] pc;
-
-logic write_B;
-logic [9:0] Address_A, Address_B;
-logic [15:0] Data_A, Data_B;
-logic [15:0] Out_A, Out_B;
+logic [10:0] immediate;
 
 logic [2:0] debug_mux [1:0];
-
-assign Address_B = pc;
-assign write_B = 0;
-assign Data_B = 0;
 
 assign debug_mux[0] = rX_address;
 assign debug_mux[1] = inr;
 
-assign outvalue = Data_A;
-
 assign clk_en = 1'b1;
 
 Decoder decoder (
-    .word(Out_B),
+    .word(instruction),
     .opcode(operation),
     .rX(rX_address),
     .rY(rY_address),
@@ -74,22 +66,9 @@ Datapath data_Path (
    .data_s(data_s),
    .operand_s(operand_s),
    .pc_s(pc_s),
-   .word_r(Out_A),
+   .word_r(memory_fetch),
    .immediate(immediate),
    .pc(pc),
-   .word_w(Data_A),
-   .word_a(Address_A));
-   
-Memory external_mem (
-    .clock(clock), 
-    .clk_en(clk_en),
-    .write_A(data_w),
-    .write_B(write_B),
-    .Address_A(Address_A),
-    .Address_B(Address_B),
-    .Data_A(Data_A),
-    .Data_B(Data_B),
-    .Out_A(Out_A),
-    .Out_B(Out_B));
-
+   .word_w(outvalue),
+   .word_a(memory_address));
 endmodule

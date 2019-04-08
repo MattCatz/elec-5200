@@ -18,8 +18,8 @@ class Datapath( VerilogModel ):
       s.operand_s = InPort(2)
       s.pc_s = InPort(1)
       s.word_r = InPort(16)
-      s.immediate = InPort(8)
-      s.pc = OutPort(12)
+      s.immediate = InPort(11)
+      s.pc = OutPort(10)
       s.word_w = OutPort(16)
       s.word_a = OutPort(10)
 
