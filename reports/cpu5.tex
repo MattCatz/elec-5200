@@ -1,0 +1,95 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage[margin=.75in]{geometry}  % Sets the margins
+
+\usepackage{color}
+ 
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+ 
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+ 
+\lstset{style=mystyle}
+
+\title{5200 CPU 4}
+\author{Matthew Cather}
+\date{March 2019}
+
+\begin{document}
+
+\maketitle
+
+This section of the CPU project focuses on interfacing with our external memory module. To facilitate verifying the integration five additional ports were exposed on the top level module: \texttt{PC, WriteAddress, WriteData, ReadAddress, ReadAddress}. This allowed us to make sure that the correct data was entering and exiting the CPU during the program execution. Relying on the verification of the internal execution from the last project we can be reasonable sure that the CPU is correctly interfacing with the External Memory Module.
+
+\tableofcontents
+\clearpage
+
+\section{External Memory unit}
+\lstinputlisting[language=verilog]{components/Memory/Memory.sv}
+\subsection{Test-bench}
+\lstinputlisting[language=python]{components/Memory/Memory_test.py}
+
+\clearpage
+\section{CPU TOP}
+\lstinputlisting[language=verilog]{components/CPU_TOP/CPU_TOP.sv}
+\subsection{Test-bench}
+\lstinputlisting[language=python]{components/CPU_TOP/CPU_TOP_test.py}
+
+\clearpage
+\section{Test Program}
+The following program was used to verify the ability for the cpu to interface with the external memory. It used a variety of instructions to load an array from memory and add one to each value in the array and then write it back. To load the program the custom assembler was used along with the verilog directive \texttt{\$readmemb}.
+\begin{lstlisting}
+000 ADDI r1, r0, 7  # base for array address
+001 ADDI r2, r0, r0 # index
+002 ADDI r3, r0, 6  # size of array
+003 ADDI r7, r0, -6 # jump offset
+004 LUI  r1, r1, 1  # array@263
+005 BEQ  r2, r3, 8
+006 ADD  r4, r1, r2 # calculate offset address
+007 LOAD r5, r4, 0  # load value from memory
+008 ADDI r5, r5, 1  # Add one
+009 ADD  r4, r4, r3 # calculate store address
+010 STOR r5, r4, 0	# store value back in memory
+011 ADDI r2, r2, 1  # ++index
+012 JAL  r0, r7
+013 BEQ  r0, r0, -1 # effectively halt
+...
+...
+...
+263 6
+264 7
+265 8
+266 9
+267 10
+268 11
+\end{lstlisting}
+
+\subsection{Testbench Results}
+\lstinputlisting{final_test.txt}
+
+% \section{Assembler}
+% \lstinputlisting[language=python]{assembler.py}
+% \section{ISA.yaml}
+% \lstinputlisting{isa.yaml}
+
+\end{document}
