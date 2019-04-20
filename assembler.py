@@ -4,6 +4,11 @@ import re
 import yaml
 import copy
 
+from parser import *
+
+lexer = lex.lex()
+parser = yacc.yacc()
+
 def get_isa(file_name):
 	ISA = None
 	with open(file_name, 'r') as stream:
@@ -45,14 +50,6 @@ def encode_instruction(tokens, ISA, symbol_table):
 	return format(temp, '016b')
 
 def main():
-	label_re = r'(?P<label>\w+)?\s*:?\s*'
-	memonic_re = r'(?P<memonic>\w+)\s+'
-	rz_re = r'(?P<rz>\w+)\s*,\s*'
-	rx_re = r'(?P<rx>\w+)\s*,\s*'
-	ry_or_kk_re = r'(?P<kk>\d+)?(?P<ry>\w+)?'
-	offset = r'?\[?(?P<offset>\d+)?\]?'
-	prog = re.compile(label_re + memonic_re + rz_re + rx_re + ry_or_kk_re)
-	pc = 0
 	program = []
 
 	ISA = get_isa("isa.yaml")
@@ -62,11 +59,9 @@ def main():
 	with open("test.asm", 'r') as fp:
 		line = fp.readline()
 		while line:
-			match = prog.match(line).groupdict()
-			if match["label"]: 
-				symbol_table[match["label"]] = pc
-			program.append(match)
-			pc = pc + 1
+			#match = parser.parse(line)
+			match = parser.parse(line)
+			print(match)
 			line = fp.readline()
 
 	# Second Pass

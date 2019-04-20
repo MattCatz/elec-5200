@@ -5,8 +5,6 @@ input clock,
 input reset,
 input logic [2:0] inr,
 input debug,
-input logic [15:0] instruction,
-input logic [15:0] memory_fetch,
 output logic [9:0] pc,
 output logic [9:0] memory_address,
 output logic [15:0] outvalue
@@ -31,6 +29,9 @@ logic [2:0] alu_ctr;
 logic [10:0] immediate;
 
 logic [2:0] debug_mux [1:0];
+
+logic [15:0] instruction;
+logic [15:0] memory_fetch;
 
 assign debug_mux[0] = rX_address;
 assign debug_mux[1] = inr;
@@ -71,4 +72,16 @@ Datapath data_Path (
    .pc(pc),
    .word_w(outvalue),
    .word_a(memory_address));
+
+Memory external_mem (
+    .clock(clock), 
+    .clk_en(clk_en),
+    .write_A(0),
+    .write_B(data_w),
+    .Address_A(pc),
+    .Address_B(memory_address),
+    .Data_A(0),
+    .Data_B(outvalue),
+    .Out_A(instruction),
+    .Out_B(memory_fetch));
 endmodule

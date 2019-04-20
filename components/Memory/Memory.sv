@@ -11,7 +11,7 @@ module Memory
 reg [dtype-1:0] memory [lines-1:0];
 
 assign Out_A = memory[Address_A];
-assign Out_B = 0;//memory[Address_B];
+assign Out_B = memory[Address_B];
 
 always_ff @(posedge clock) begin
     if (write_A) begin
@@ -22,5 +22,9 @@ end
 always_ff @(posedge clock) begin
     if (write_B)
         memory[Address_B] <= Data_B;
+end
+
+initial begin
+    $readmemb("rom_image.mem", memory);
 end
 endmodule

@@ -18,8 +18,8 @@ def gen_vector_table(data):
    test_vector_table = [] * (len(data) + 1)
    test_vector_table.append(test_vector_header)
    for idx, val in enumerate(data):
-      test_vector_table.append( [1, 1, idx, val,   0, 0, 0, 0, 0] )
-      test_vector_table.append( [0, 0, idx,   0, val, 0, 0, 0, 0] )
+      test_vector_table.append( [1, 1, idx, val,   0, 0, 0, 0, '?'] )
+      test_vector_table.append( [0, 0, idx,   0, val, 0, 0, 0, '?'] )
    return test_vector_table
 
 
